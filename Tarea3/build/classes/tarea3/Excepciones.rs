@@ -1,0 +1,4 @@
+tarea3.PagoIncorrectoException
+tarea3.EleccionInexistenteException
+tarea3.PagoInsuficienteException
+tarea3.NoHayBebidaException

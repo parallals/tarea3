@@ -75,9 +75,10 @@ class Expendedor extends Deposito{
         this.precioBebidas = precioBebidas;
     }
     public void paint (Graphics g,int w, int h){
-        super.paint(g);
-        g.setColor(Color.blue);
-        g.fillRect(w/2,h/3, w/4,h/3);
+        g.setColor(new Color(50,50,50)); //Cajón
+        g.fillRect(11*w/20,h/24, 8*w/20,22*h/24);
+        g.setColor(new Color(190,145,190));
+        g.fillRect(11*w/20,h/24, 8*w/20,22*h/24);
     }
 }
 

@@ -12,12 +12,13 @@ public class Ventana extends JFrame {
        super();
       this.setLayout(new BorderLayout());
       this.setTitle("Tarea 3: Expendedor");
-      this.setSize(1280,720);
+      this.setSize(1280,721);
       setResizable(true); // Fija el tamaño de la ventana.
       setLocationRelativeTo(null); // Centra la ventana.
       this.setDefaultCloseOperation(EXIT_ON_CLOSE);
       this.setVisible(true); 
       this.add(new PanelPrincipal());
+      this.setSize(1280,720);      
    } 
 }
 
@@ -30,12 +31,12 @@ class PanelPrincipal extends JPanel implements MouseListener{//se ve en el centr
     }
     public void paint(Graphics g){ //el elemento del principio es el que va al fondo, el último el que está mas alfrente
         super.paint(g);
-
-        Toolkit t = Toolkit.getDefaultToolkit(); 
-        Dimension size = Toolkit.getDefaultToolkit().getScreenSize();
+        
+        Dimension size = this.getSize();
         int w = size.width;
         int h = size.height;
         this.setBackground(Color.green);
+        exp.paint(g,w,h);
         // aqui pasa la magia            
             try { Image i = new ImageIcon(this.getClass().getResource("cocacola.png")).getImage(); //HAY QUE DEJAR LOS SPRITES DE LAS COSAS EN EL PAQUETE JUNTO A LAS CLASES, hasta encontrar un método más elegante
             g.drawImage(i, 0+w/5, 0+h/3, w/3, h/3, this);

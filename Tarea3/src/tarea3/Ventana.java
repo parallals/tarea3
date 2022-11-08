@@ -1,6 +1,10 @@
 package tarea3;
 import java.awt.BorderLayout;
 import javax.swing.JFrame;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 
 public class Ventana extends JFrame {
     public Ventana(){
@@ -12,8 +16,44 @@ public class Ventana extends JFrame {
       setLocationRelativeTo(null); // Centra la ventana.
       this.setDefaultCloseOperation(EXIT_ON_CLOSE);
       this.setVisible(true); 
+      this.add(new PanelPrincipal());
    } 
 }
- 
+
+class PanelPrincipal extends JPanel {//se ve en el centro de la ventana 
+    private Comprador com; 
+    private Expendedor exp; 
+    public PanelPrincipal () { 
+        //this.exp = new Expendedor(5,1000); 
+        //this.com = new Comprador(Moneda moneda, int BebidaElegida, Expendedor expendedor); 
+    }
+    public void paint(Graphics g){ //el elemento del principio es el que va al fondo, el último el que está mas alfrente
+        super.paint(g);
+        this.setBackground(Color.white);
+        g.setColor(Color.cyan);
+        g.fillRect(this.getX()/4,this.getY()/4,this.getWidth()/2,this.getHeight()/2);
+        // aqui pasa la magia
+            Toolkit t = Toolkit.getDefaultToolkit(); 
+            try { Image i = new ImageIcon(this.getClass().getResource("cocacola.png")).getImage(); //HAY QUE DEJAR LOS SPRITES DE LAS COSAS EN EL PAQUETE JUNTO A LAS CLASES, hasta encontrar un método más elegante
+            g.drawImage(i, 320,0, 100, 100, this);
+            } catch(Exception e){
+                System.out.println("No cargo la imagen");                
+            }
+            // aqui termina la magia (gracias rena)
+        
+    }
+    public void mouseClicked(MouseEvent me) {
+    } // es llamado cuando el press y el release ocurren en el mismo pixel
+    public void mousePressed(MouseEvent me) {
+        System.out.println("press"); //se imprimirá press cada vez que se oprima un botón del mouse dentro del área
+    }
+    public void mouseReleased(MouseEvent me) {
+    } // el llamado al soltar el botón
+    public void mouseEntered(MouseEvent me) {
+    }  // cursor entra al área
+    public void mouseExited(MouseEvent me) {
+    }   // cursor sale del área 
+} 
+            
 // https://lineadecodigo.com/java/centrar-un-jframe/
 // https://www.jairogarciarincon.com/clase/interfaces-de-usuario-con-java-swing/componentes-jframe-jlabel-y-jdialog-dialogos-modales

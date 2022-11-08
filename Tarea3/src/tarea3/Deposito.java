@@ -1,4 +1,5 @@
 package tarea3;
+import java.awt.Graphics;
 import java.util.ArrayList;
 
 public abstract class Deposito {
@@ -21,4 +22,8 @@ public abstract class Deposito {
             DepositoLimonSoda.add(new LimonSoda(i+(3*cantidad)));
         }
     } 
+
+    void paint(Graphics g) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }

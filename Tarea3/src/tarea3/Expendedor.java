@@ -1,4 +1,6 @@
 package tarea3;
+import javax.swing.*;
+import java.awt.*;
 
 class Expendedor extends Deposito{
     private final int precioBebidas;
@@ -71,5 +73,7 @@ class Expendedor extends Deposito{
     public Expendedor(int numBebidas, int precioBebidas){
         super(numBebidas);
         this.precioBebidas = precioBebidas;
+    }
+    public void paint (Graphics g){
     }
 }

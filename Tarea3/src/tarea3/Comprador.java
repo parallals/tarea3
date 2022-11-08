@@ -9,7 +9,13 @@ public class Comprador{
     public String queBebiste(){
         return sabor;
     }
-    public void ComprarOtra(Moneda moneda, int BebidaElegida, Expendedor expendedor){
+    public void comprarBebida(){
+        
+    }
+    /*public Bebida getBebida(){
+        return ;
+    }*/
+    /*public void ComprarOtra(Moneda moneda, int BebidaElegida, Expendedor expendedor){
         Bebida bebida;
         try{
             bebida = expendedor.ComprarBebida(BebidaElegida, moneda);
@@ -28,7 +34,7 @@ public class Comprador{
                 i=10;
             }
         }
-    }
+    }*/
     public Comprador(Moneda moneda, int BebidaElegida, Expendedor expendedor){
         Bebida bebida;
         try{

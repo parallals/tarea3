@@ -9,12 +9,16 @@ public abstract class Deposito {
     protected ArrayList<Fanta> DepositoFanta;
     protected ArrayList<LimonSoda> DepositoLimonSoda;
     protected ArrayList<Moneda> DepositoVuelto;
+    protected ArrayList<Moneda> DepositoPagado;
+    protected Bebida DepositoBebidaSacar;
     protected Deposito(int cantidad){
         DepositoCoca = new ArrayList<>();
         DepositoSprite = new ArrayList<>();
         DepositoFanta = new ArrayList<>();
         DepositoLimonSoda = new ArrayList<>();
         DepositoVuelto = new ArrayList<>();
+        DepositoPagado = new ArrayList<>();
+        DepositoBebidaSacar = null;
         for(int i=0 ; i<cantidad ; i++){
             DepositoCoca.add(new CocaCola(i));
             DepositoSprite.add(new Sprite(i+cantidad));
@@ -22,7 +26,7 @@ public abstract class Deposito {
             DepositoLimonSoda.add(new LimonSoda(i+(3*cantidad)));
         }
     } 
-
+    
     void paint(Graphics g) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }

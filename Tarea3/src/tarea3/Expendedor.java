@@ -1,8 +1,6 @@
 package tarea3;
 import javax.swing.*;
 import java.awt.*;
-import java.awt.image.ImageObserver;
-import java.util.ArrayList;
 
 class Expendedor extends Deposito{
     private final int precioBebidas;

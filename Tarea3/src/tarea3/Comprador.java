@@ -1,5 +1,11 @@
 package tarea3;
 
+import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.Image;
+import javax.swing.ImageIcon;
+import javax.swing.JPanel;
+
 public class Comprador{
     private int vuelto;
     private String sabor;
@@ -51,5 +57,9 @@ public class Comprador{
                 i=10;
             }
         }
+    }
+    public void paint(Graphics g, JPanel panel){
+        Image i = new ImageIcon(this.getClass().getResource("../Textures/compracompleto.png")).getImage();
+        g.drawImage(i, 150,180,500,500, panel);
     }
 }

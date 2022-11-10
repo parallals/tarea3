@@ -1,6 +1,7 @@
 package tarea3;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.image.ImageObserver;
 import java.util.ArrayList;
 
 class Expendedor extends Deposito{
@@ -24,7 +25,9 @@ class Expendedor extends Deposito{
                     }
                     moneda = null;
                     DepositoBebidaSacar = DepositoCoca.remove(0);
+                    System.out.println("COMPRADA");
                 }
+                break;
             case 2:
                 if(DepositoSprite.isEmpty()){
                     DepositoVuelto.add(moneda);
@@ -36,6 +39,7 @@ class Expendedor extends Deposito{
                     moneda = null;
                     DepositoBebidaSacar = DepositoSprite.remove(0);
                 }
+                break;
             case 3:
                 if(DepositoFanta.isEmpty()){
                     DepositoVuelto.add(moneda);
@@ -47,6 +51,7 @@ class Expendedor extends Deposito{
                     moneda = null;
                     DepositoBebidaSacar = DepositoFanta.remove(0);
                 }
+                break;
             case 4:
                 if(DepositoLimonSoda.isEmpty()){
                     DepositoVuelto.add(moneda);
@@ -58,6 +63,7 @@ class Expendedor extends Deposito{
                     moneda = null;
                     DepositoBebidaSacar = DepositoLimonSoda.remove(0);
                 }
+                break;
             default:
                 DepositoVuelto.add(moneda);
                 throw new EleccionInexistenteException("Error de seleccion");
@@ -80,50 +86,26 @@ class Expendedor extends Deposito{
         super(numBebidas);
         this.precioBebidas = precioBebidas;
     }
-    public void paint(Graphics g,int w, int h){
+    public void paint(Graphics g,int w, int h, JPanel panel){
         g.setColor(new Color(50,10,10)); //cajón
         g.fillRect(19*w/36,h/24, 16*w/36,22*h/24);
-        g.setColor(new Color(170,150,150)); //ventanilla
+        g.setColor(new Color(200,190,190)); //ventanilla
         g.fillRect(20*w/36,h/24+h/36, 3*w/10,12*h/14);
-        g.setColor(new Color(140,120,125));
+        g.setColor(new Color(240,120,125));
         g.fillRect(221*w/256, 27*h/40, w/10, 7*h/28);
-        /*int j;
-        for(j = 0; j < DepositoCoca.size() ; j++){
-            //Image i = new ImageIcon(this.getClass().getResource("../Textures/cocacola.png")).getImage();
-            //g.drawImage(i, 725, 620-(j+1)*100, 50, 75, this);
-            g.setColor(Color.red);
-            g.fillRect(725, 620-(j+1)*100, 50, 75);
+        for(int j = 0; j < DepositoCoca.size() ; j++){
+            DepositoCoca.get(j).paint(g, j, panel);
         }
-        */
-        paintDepositos(g,1,DepositoCoca);
-        paintDepositos(g,2,DepositoSprite);
-        paintDepositos(g,3,DepositoFanta);
-        paintDepositos(g,4,DepositoLimonSoda);
+        for(int j = 0; j < DepositoSprite.size() ; j++){
+            DepositoSprite.get(j).paint(g, j, panel);
+        }
+        for(int j = 0; j < DepositoFanta.size() ; j++){
+            DepositoFanta.get(j).paint(g, j, panel);
+        }
+        for(int j = 0; j < DepositoLimonSoda.size() ; j++){
+            DepositoLimonSoda.get(j).paint(g, j, panel);
+        }
         
     }
-    public void paintDepositos(Graphics g,int bebida, ArrayList deposito){
-        int j; 
-        Color color = null;
-        for(j = 0; j < deposito.size() ; j++){
-            switch (bebida) {
-                case 1:
-                    color = new Color(255,0,0);
-                    break;
-                case 2:
-                    color = new Color(0,250,100);
-                    break;
-                case 3:
-                    color = new Color(250,150,0);
-                    break;
-                case 4:
-                    color = new Color(250,243,120);
-                    break;
-                default:
-                    break;
-            }
-            g.setColor(color);
-            g.fillRect(725+(bebida-1)*80, 620-(j+1)*100, 50, 75);
-        }    
-    }
 }
-
+   

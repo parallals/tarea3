@@ -3,12 +3,23 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/C:/Users/jelve/OneDrive%20-%20Universidad%20de%20Concepción/tarea-git3/tarea3/Tarea3/src/tarea3/Tarea3.java</file>
             <file>file:/C:/Users/jelve/OneDrive%20-%20Universidad%20de%20Concepción/tarea-git3/tarea3/Tarea3/src/tarea3/Comprador.java</file>
             <file>file:/C:/Users/jelve/OneDrive%20-%20Universidad%20de%20Concepción/tarea-git3/tarea3/Tarea3/src/tarea3/Deposito.java</file>
             <file>file:/C:/Users/jelve/OneDrive%20-%20Universidad%20de%20Concepción/tarea-git3/tarea3/Tarea3/src/tarea3/Botones.java</file>
             <file>file:/C:/Users/jelve/OneDrive%20-%20Universidad%20de%20Concepción/tarea-git3/tarea3/Tarea3/src/tarea3/Ventana.java</file>
             <file>file:/C:/Users/jelve/OneDrive%20-%20Universidad%20de%20Concepción/tarea-git3/tarea3/Tarea3/src/tarea3/Expendedor.java</file>
+=======
+            <file>file:/C:/Users/Diego/Desktop/tarea3/Tarea3/src/tarea3/Excepciones.java</file>
+            <file>file:/C:/Users/Diego/Desktop/tarea3/Tarea3/src/tarea3/Deposito.java</file>
+            <file>file:/C:/Users/Diego/Desktop/tarea3/Tarea3/src/tarea3/Ventana.java</file>
+            <file>file:/C:/Users/Diego/Desktop/tarea3/Tarea3/src/tarea3/Tarea3.java</file>
+            <file>file:/C:/Users/Diego/Desktop/tarea3/Tarea3/src/tarea3/Expendedor.java</file>
+            <file>file:/C:/Users/Diego/Desktop/tarea3/Tarea3/src/tarea3/Comprador.java</file>
+            <file>file:/C:/Users/Diego/Desktop/tarea3/Tarea3/src/tarea3/Monedas.java</file>
+            <file>file:/C:/Users/Diego/Desktop/tarea3/Tarea3/src/tarea3/Bebida.java</file>
+>>>>>>> b664293372af43cf7d5183a11f573fb820430b01
         </group>
     </open-files>
 </project-private>

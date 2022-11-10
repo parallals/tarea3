@@ -12,14 +12,14 @@ public class Ventana extends JFrame {
        super();
       this.setLayout(new BorderLayout());
       this.setTitle("Tarea 3: Expendedor");
-      this.setSize(1280,721);
       setResizable(true); // Fija el tamaño de la ventana.
-      setLocationRelativeTo(null); // Centra la ventana.
-      this.setDefaultCloseOperation(EXIT_ON_CLOSE);
       this.setVisible(true); 
-      this.add(new Botones());      
       this.add(new PanelPrincipal());
       this.setSize(1280,720);
+      this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+      this.add(new PanelPrincipal());
+      this.setSize(1280,720);      
+      setLocationRelativeTo(null); // Centra la ventana.
    } 
     
     
@@ -35,6 +35,7 @@ class PanelPrincipal extends JPanel{//se ve en el centro de la ventana
         this.addMouseListener(er1);
         Botones();
     }
+    
     public void paint(Graphics g){ //el elemento del principio es el que va al fondo, el último el que está mas alfrente
         super.paint(g);
         Dimension size = this.getSize();
@@ -42,13 +43,15 @@ class PanelPrincipal extends JPanel{//se ve en el centro de la ventana
         int h = size.height;
         this.setBackground(Color.green);
         exp.paint(g,w,h);          
-            try { Image i = new ImageIcon(this.getClass().getResource("cocacola.png")).getImage(); //HAY QUE DEJAR LOS SPRITES DE LAS COSAS EN EL PAQUETE JUNTO A LAS CLASES, hasta encontrar un método más elegante
+        // aqui pasa la magia            
+            try { Image i = new ImageIcon(this.getClass().getResource("../Textures/cocacola.png")).getImage(); //HAY QUE DEJAR LOS SPRITES DE LAS COSAS EN EL PAQUETE JUNTO A LAS CLASES, hasta encontrar un método más elegante
             g.drawImage(i, 0+w/5, 0+h/3, w/3, h/3, this);
             } catch(Exception e){
                 System.out.println("No cargo la imagen");                
             }
             
     }
+            
     private class EscuchaRaton1 implements MouseListener{
         public void mouseClicked(MouseEvent me) {
             System.out.println("click");
@@ -67,16 +70,75 @@ class PanelPrincipal extends JPanel{//se ve en el centro de la ventana
     
     }
 
-
-    public void Botones(){
-        JButton bcoca = new JButton("COCA");
-        bcoca.setBounds(655, 15, 100, 150);
-        bcoca.setEnabled(true);
-        bcoca.setBackground(Color.red);
-        this.add(bcoca);
-    }    
-
-} 
             
 // https://lineadecodigo.com/java/centrar-un-jframe/
 // https://www.jairogarciarincon.com/clase/interfaces-de-usuario-con-java-swing/componentes-jframe-jlabel-y-jdialog-dialogos-modales
+
+            // aqui termina la magia (gracias rena)   
+       
+     private void Botones(){
+        int w = this.getSize().width;
+        int h = this.getSize().height;
+        
+        JButton Cocacola = new JButton();
+        Cocacola.setBounds(h/2, w/2, 100,100);
+        Cocacola.setEnabled(true);
+        try {
+            ImageIcon CocacolaLogo = new ImageIcon("../Textures/cocacola-logo.jpg");
+            Cocacola.setIcon(new ImageIcon(CocacolaLogo.getImage().getScaledInstance(Cocacola.getWidth(), Cocacola.getHeight(), Image.SCALE_SMOOTH)));
+        } catch(Exception e){
+            System.out.println("No cargo la imagen cocacola-logo.jpg");                
+        }
+        this.add(Cocacola);
+        
+        JButton Fanta = new JButton();
+        Fanta.setBounds(0, 0, h/4, w/4);
+        Fanta.setEnabled(true);
+        try {
+            ImageIcon FantaLogo = new ImageIcon("../Textures/fanta-logo.jpg");
+            Fanta.setIcon(new ImageIcon(FantaLogo.getImage().getScaledInstance(Fanta.getWidth(), Fanta.getHeight(), Image.SCALE_SMOOTH)));
+        } catch(Exception e){
+            System.out.println("No cargo la imagen fanta-logo.jpg");                
+        }
+        this.add(Fanta);
+        
+        JButton Sprite = new JButton();
+        Sprite.setBounds(0, 0, h/4, w/4);
+        Sprite.setEnabled(true);
+        try {
+            ImageIcon SpriteLogo = new ImageIcon("../Textures/sprite-logo.jpg");
+            Sprite.setIcon(new ImageIcon(SpriteLogo.getImage().getScaledInstance(Sprite.getWidth(), Sprite.getHeight(), Image.SCALE_SMOOTH)));
+        } catch(Exception e){
+            System.out.println("No cargo la imagen sprite-logo.jpg");                
+        }
+        this.add(Sprite);
+        
+        JButton LimonSoda = new JButton();
+        LimonSoda.setBounds(0, 0, h/4, w/4);
+        LimonSoda.setEnabled(true);
+        try {
+            ImageIcon LimonSodaLogo = new ImageIcon("../Textures/limonsoda-logo.png");
+            LimonSoda.setIcon(new ImageIcon(LimonSodaLogo.getImage().getScaledInstance(LimonSoda.getWidth(), LimonSoda.getHeight(), Image.SCALE_DEFAULT)));
+        } catch(Exception e){
+            System.out.println("No cargo la imagen limonsoda-logo.jpg");                
+        }
+        this.add(LimonSoda);
+     }
+    
+    public void mouseClicked(MouseEvent me) {
+        
+    } // es llamado cuando el press y el release ocurren en el mismo pixel
+    public void mousePressed(MouseEvent me) {
+        System.out.println("press"); //se imprimirá press cada vez que se oprima un botón del mouse dentro del área
+    }
+    public void mouseReleased(MouseEvent me) {
+    } // el llamado al soltar el botón
+    public void mouseEntered(MouseEvent me) {
+    }  // cursor entra al área
+    public void mouseExited(MouseEvent me) {
+    }   // cursor sale del área 
+ 
+   
+}
+
+

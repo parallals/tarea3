@@ -87,12 +87,14 @@ class Expendedor extends Deposito{
         this.precioBebidas = precioBebidas;
     }
     public void paint(Graphics g,int w, int h, JPanel panel){
-        g.setColor(new Color(50,10,10)); //cajón
+        g.setColor(new Color(50,10,10)); //cajÃ³n
         g.fillRect(19*w/36,h/24, 16*w/36,22*h/24);
         g.setColor(new Color(200,190,190)); //ventanilla
         g.fillRect(20*w/36,h/24+h/36, 3*w/10,12*h/14);
         g.setColor(new Color(240,120,125));
-        g.fillRect(221*w/256, 27*h/40, w/10, 7*h/28);
+        g.fillRect(221*w/256, 30*h/40, w/10, 5*h/28);
+        g.setColor(new Color(200,150,250));
+        g.fillRect(221*w/256, 22*h/40, w/10, 5*h/28);
         for(int j = 0; j < DepositoCoca.size() ; j++){
             DepositoCoca.get(j).paint(g, j, panel);
         }
@@ -108,4 +110,3 @@ class Expendedor extends Deposito{
         
     }
 }
-   

@@ -14,8 +14,8 @@ import javax.swing.JPanel;
 class PanelPrincipal extends JPanel{//se ve en el centro de la ventana 
     private Comprador com; 
     private Expendedor exp;
-    private int xbot = 1090;
-    private int ybot = 150;
+    private int xbot = 1095;
+    private int ybot = 100;
     public PanelPrincipal() { 
         this.exp = new Expendedor(5,500); 
         this.com = new Comprador(null, 0, exp); 
@@ -38,17 +38,25 @@ class PanelPrincipal extends JPanel{//se ve en el centro de la ventana
             } catch(Exception e){
                 System.out.println("No cargo la imagen");                
             }*/
-            g.setColor(Color.red);
-            g.fillRect(xbot, ybot, 50, 50);
-        
+            
+            Image i1 = new ImageIcon(this.getClass().getResource("../Textures/cocacola-logo.jpg")).getImage();
+            g.drawImage(i1,1095, 100, 120, 50, this);
+            Image i2 = new ImageIcon(this.getClass().getResource("../Textures/sprite-logo.jpg")).getImage();
+            g.drawImage(i2,1095, 160, 120, 50, this);
+            Image i3 = new ImageIcon(this.getClass().getResource("../Textures/fanta-logo.jpg")).getImage();
+            g.drawImage(i3,1095, 220, 120, 50, this);
+            Image i4 = new ImageIcon(this.getClass().getResource("../Textures/limonsoda-logo.png")).getImage();
+            g.drawImage(i4,1095, 280, 120, 50, this);
     }
            
     private class EscuchaRaton1 implements MouseListener{     
+        @Override
         public void mouseClicked(MouseEvent me) {
             
         }    
+        @Override
         public void mousePressed(MouseEvent me){
-            if(me.getX() >= xbot && me.getY() <= ybot+50 && me.getX() <= xbot+50 && me.getY() >= ybot){
+            if(me.getX() >= xbot && me.getY() <= ybot+50 && me.getX() <= xbot+120 && me.getY() >= ybot){
                 System.out.println("presionada la coca");
                 try{
                     exp.ComprarBebida(1,new Moneda500());
@@ -59,16 +67,15 @@ class PanelPrincipal extends JPanel{//se ve en el centro de la ventana
             } 
         //se imprimirá press cada vez que se oprima un botón del mouse dentro del área
         }
+        @Override
         public void mouseReleased(MouseEvent me) {
         } // el llamado al soltar el botón
+        @Override
         public void mouseEntered(MouseEvent me) {
         }  // cursor entra al área
+        @Override
         public void mouseExited(MouseEvent me) {
         }   // cursor sale del área 
     
     }
 }
-            
-// https://lineadecodigo.com/java/centrar-un-jframe/
-// https://www.jairogarciarincon.com/clase/interfaces-de-usuario-con-java-swing/componentes-jframe-jlabel-y-jdialog-dialogos-modales
-    

@@ -17,7 +17,6 @@ public class Ventana extends JFrame {
       this.add(new PanelPrincipal());
       this.setSize(1280,720);
       this.setDefaultCloseOperation(EXIT_ON_CLOSE);
-      this.add(new PanelPrincipal());
       this.setSize(1280,720);      
       setLocationRelativeTo(null); // Centra la ventana.
    } 
@@ -51,7 +50,7 @@ class PanelPrincipal extends JPanel{//se ve en el centro de la ventana
             }
             
     }
-            
+             
     private class EscuchaRaton1 implements MouseListener{
         public void mouseClicked(MouseEvent me) {
             System.out.println("click");
@@ -75,23 +74,28 @@ class PanelPrincipal extends JPanel{//se ve en el centro de la ventana
 // https://www.jairogarciarincon.com/clase/interfaces-de-usuario-con-java-swing/componentes-jframe-jlabel-y-jdialog-dialogos-modales
 
             // aqui termina la magia (gracias rena)   
-       
-     private void Botones(){
-        int w = this.getSize().width;
-        int h = this.getSize().height;
-        
+    private void Botones(){        JButton boton1 = new JButton(); 
+        //this.setLayout(null); testing
+        boton1.setBounds(655, 175, 50, 50);
+        boton1.setEnabled(true);
+        boton1.setBackground(Color.MAGENTA);
+        this.add(boton1); 
+    }
+         
+        /*//Boton Cocacola PRUEBA 1!!!
         JButton Cocacola = new JButton();
-        Cocacola.setBounds(h/2, w/2, 100,100);
+        Cocacola.setBounds(0, 0, h/4, w/4);
         Cocacola.setEnabled(true);
+        ImageIcon CocacolaLogo = new ImageIcon("../Textures/cocacola-logo.jpg");        
         try {
-            ImageIcon CocacolaLogo = new ImageIcon("../Textures/cocacola-logo.jpg");
             Cocacola.setIcon(new ImageIcon(CocacolaLogo.getImage().getScaledInstance(Cocacola.getWidth(), Cocacola.getHeight(), Image.SCALE_SMOOTH)));
+            
         } catch(Exception e){
-            System.out.println("No cargo la imagen cocacola-logo.jpg");                
+            System.out.println("No cargo la imagen cocacola-logo.jpg");
+            Cocacola.setBackground(Color.red);
         }
         this.add(Cocacola);
-        
-        JButton Fanta = new JButton();
+        /*JButton Fanta = new JButton();
         Fanta.setBounds(0, 0, h/4, w/4);
         Fanta.setEnabled(true);
         try {
@@ -123,8 +127,8 @@ class PanelPrincipal extends JPanel{//se ve en el centro de la ventana
             System.out.println("No cargo la imagen limonsoda-logo.jpg");                
         }
         this.add(LimonSoda);
-     }
-    
+     }*/
+     
     public void mouseClicked(MouseEvent me) {
         
     } // es llamado cuando el press y el release ocurren en el mismo pixel

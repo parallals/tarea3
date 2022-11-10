@@ -9,12 +9,7 @@ public class Comprador{
     public String queBebiste(){
         return sabor;
     }
-    public void comprarBebida(){
-        
-    }
-    /*public Bebida getBebida(){
-        return ;
-    }*/
+
     /*public void ComprarOtra(Moneda moneda, int BebidaElegida, Expendedor expendedor){
         Bebida bebida;
         try{
@@ -38,7 +33,9 @@ public class Comprador{
     public Comprador(Moneda moneda, int BebidaElegida, Expendedor expendedor){
         Bebida bebida;
         try{
-            bebida = expendedor.ComprarBebida(BebidaElegida, moneda);
+            //bebida = expendedor.ComprarBebida(BebidaElegida, moneda);
+            expendedor.ComprarBebida(BebidaElegida, moneda);
+            bebida = expendedor.getBebida();
             this.sabor =  bebida.beber();
         } catch (NoHayBebidaException | PagoInsuficienteException | PagoIncorrectoException | EleccionInexistenteException e){
             System.out.println(e.getMessage());

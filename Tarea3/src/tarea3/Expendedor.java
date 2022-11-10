@@ -1,6 +1,7 @@
 package tarea3;
 import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
 
 class Expendedor extends Deposito{
     private final int precioBebidas;
@@ -79,11 +80,50 @@ class Expendedor extends Deposito{
         super(numBebidas);
         this.precioBebidas = precioBebidas;
     }
-    public void paint (Graphics g,int w, int h){
-        g.setColor(new Color(50,10,10));
+    public void paint(Graphics g,int w, int h){
+        g.setColor(new Color(50,10,10)); //cajón
         g.fillRect(19*w/36,h/24, 16*w/36,22*h/24);
-        g.setColor(new Color(250,250,250));
-        g.fillRect(19*w/36,h/24, 2*w/10,12*h/14);
+        g.setColor(new Color(170,150,150)); //ventanilla
+        g.fillRect(20*w/36,h/24+h/36, 3*w/10,12*h/14);
+        g.setColor(new Color(140,120,125));
+        g.fillRect(221*w/256, 27*h/40, w/10, 7*h/28);
+        /*int j;
+        for(j = 0; j < DepositoCoca.size() ; j++){
+            //Image i = new ImageIcon(this.getClass().getResource("../Textures/cocacola.png")).getImage();
+            //g.drawImage(i, 725, 620-(j+1)*100, 50, 75, this);
+            g.setColor(Color.red);
+            g.fillRect(725, 620-(j+1)*100, 50, 75);
+        }
+        */
+        paintDepositos(g,1,DepositoCoca);
+        paintDepositos(g,2,DepositoSprite);
+        paintDepositos(g,3,DepositoFanta);
+        paintDepositos(g,4,DepositoLimonSoda);
+        
+    }
+    public void paintDepositos(Graphics g,int bebida, ArrayList deposito){
+        int j; 
+        Color color = null;
+        for(j = 0; j < deposito.size() ; j++){
+            switch (bebida) {
+                case 1:
+                    color = new Color(255,0,0);
+                    break;
+                case 2:
+                    color = new Color(0,250,100);
+                    break;
+                case 3:
+                    color = new Color(250,150,0);
+                    break;
+                case 4:
+                    color = new Color(250,243,120);
+                    break;
+                default:
+                    break;
+            }
+            g.setColor(color);
+            g.fillRect(725+(bebida-1)*80, 620-(j+1)*100, 50, 75);
+        }    
     }
 }
 

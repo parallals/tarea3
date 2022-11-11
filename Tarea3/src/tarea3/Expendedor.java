@@ -29,6 +29,7 @@ class Expendedor extends Deposito{
                     DepositoVuelto.add(moneda);
                     throw new NoHayBebidaException("No quedan CocaColas");
                 }else{
+                    DepositoPagado.add(moneda);
                     if(Aux>4){
                         DepositoVuelto.add(new Moneda500(serieMonedas));
                         serieMonedas = serieMonedas+1;
@@ -47,6 +48,7 @@ class Expendedor extends Deposito{
                     DepositoVuelto.add(moneda);
                     throw new NoHayBebidaException("No quedan Sprites");
                 }else{
+                    DepositoPagado.add(moneda);
                     if(Aux>4){
                         DepositoVuelto.add(new Moneda500(serieMonedas));
                         serieMonedas = serieMonedas+1;
@@ -65,6 +67,7 @@ class Expendedor extends Deposito{
                     DepositoVuelto.add(moneda);
                     throw new NoHayBebidaException("No quedan Fantas");
                 }else{
+                    DepositoPagado.add(moneda);
                     if(Aux>4){
                         DepositoVuelto.add(new Moneda500(serieMonedas));
                         serieMonedas = serieMonedas+1;
@@ -83,6 +86,7 @@ class Expendedor extends Deposito{
                     DepositoVuelto.add(moneda);
                     throw new NoHayBebidaException("No quedan LimonSoda");
                 }else{
+                    DepositoPagado.add(moneda);
                     if(Aux>4){
                         DepositoVuelto.add(new Moneda500(serieMonedas));
                         serieMonedas = serieMonedas+1;
@@ -153,6 +157,18 @@ class Expendedor extends Deposito{
         
         if(DepositoBebidaSacar != null){
             DepositoBebidaSacar.paint(g, 229*w/256, 31*h/40, 50, 75, panel);
+        }
+        
+        for(int j = 0; j < DepositoVuelto.size() ; j++){
+            if(j<4){
+                DepositoVuelto.get(j).paint(g, 221*w/256+(j*25), 26*h/40, 50, 50, panel);
+            }else if(j<8){
+                DepositoVuelto.get(j).paint(g, 221*w/256+((j-4)*25), 24*h/40, 50, 50, panel);
+            }else if(j<12){
+                DepositoVuelto.get(j).paint(g, 221*w/256+((j-8)*25), 22*h/40, 50, 50, panel);
+            }else{
+                //Error>retire vuelto
+            }
         }
         
     }

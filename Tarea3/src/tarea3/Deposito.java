@@ -4,7 +4,7 @@ import java.util.ArrayList;
 public abstract class Deposito {
     
     protected int serieBebidas;
-    protected ArrayList<CocaCola> DepositoCoca;
+    protected  ArrayList<CocaCola> DepositoCoca;
     protected ArrayList<Sprite> DepositoSprite;
     protected ArrayList<Fanta> DepositoFanta;
     protected ArrayList<LimonSoda> DepositoLimonSoda;

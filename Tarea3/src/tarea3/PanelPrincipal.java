@@ -14,7 +14,7 @@ class PanelPrincipal extends JPanel{//se ve en el centro de la ventana
     private final Expendedor exp;
     
     public PanelPrincipal() { 
-        this.exp = new Expendedor(5,500); 
+        this.exp = new Expendedor(5,300); 
         this.com = new Comprador(exp); 
         EscuchaRaton1 er1 = new EscuchaRaton1();
         this.addMouseListener(er1);
@@ -83,12 +83,11 @@ class PanelPrincipal extends JPanel{//se ve en el centro de la ventana
                 PanelPrincipal.this.repaint();
             } 
             
-            if(exp.DepositoBebidaSacar != null){
-                if(me.getX() >= 1131 && me.getY() <= 528 +50 && me.getX() <= 1131+75 && me.getY() >= 528){
-                    com.RetirarBebida();
-                    PanelPrincipal.this.repaint();
-                }
+            if(me.getX() >= 1131 && me.getY() <= 528 +50 && me.getX() <= 1131+75 && me.getY() >= 528){
+                com.RetirarBebida();
+                PanelPrincipal.this.repaint();
             }
+            
             
             if(me.getX()>=140 && me.getY()<=600+80 && me.getX()<=140+80 && me.getY()>=600){
                 com.DarMoneda(1);      
@@ -102,6 +101,11 @@ class PanelPrincipal extends JPanel{//se ve en el centro de la ventana
             
             if(me.getX()>=340 && me.getY()<=600+80 && me.getX()<=340+80 && me.getY()>=600){
                 com.DarMoneda(3);     
+                PanelPrincipal.this.repaint();           
+            } 
+            
+            if(me.getX()>=1091 && me.getY()<=375+122 && me.getX()<=1091+126 && me.getY()>=375){
+                com.RetirarVuelto();     
                 PanelPrincipal.this.repaint();           
             } 
         }

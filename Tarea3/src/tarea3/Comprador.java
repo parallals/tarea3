@@ -10,15 +10,17 @@ public class Comprador{
     
     protected Bebida bebida;
     private final ArrayList<Bebida> bebidasCompradas;
+    private final ArrayList<Moneda> Monedero;
     private Moneda moneda;
     private final Expendedor exp;
     private int serieMonedas;
 
     public Comprador(Expendedor expendedor){
-        bebida = null;
         bebidasCompradas = new ArrayList<>();
-        exp = expendedor;
+        Monedero = new ArrayList<>();
         serieMonedas = 0;
+        bebida = null;
+        exp = expendedor;
     }
     
     public void DarMoneda(int opcion){
@@ -39,12 +41,22 @@ public class Comprador{
     }
     
     public void PagarBebida(int BebidaElegida){
-        exp.ComprarBebida(BebidaElegida, moneda);
-        moneda = null;
+        try{
+            exp.ComprarBebida(BebidaElegida, moneda);
+        } catch (NoHayBebidaException | PagoInsuficienteException | PagoIncorrectoException | EleccionInexistenteException e){
+            System.out.println(e.getMessage());
+        }
+            moneda = null;
     }
     
+    public void RetirarVuelto(){
+        Monedero.add(exp.getVuelto());
+    }
+        
     public void RetirarBebida(){
-        bebida = exp.getBebida();
+        if(exp.DepositoBebidaSacar != null){
+            bebida = exp.getBebida();
+        }
     }
             
     public void paint(Graphics g, int w, int h, JPanel panel){
@@ -81,7 +93,7 @@ public class Comprador{
             }           
         }
         if(bebida != null){
-           bebida.paint(g, 590, 505, 50, 75, panel);
+               bebida.paint(g, 590, 505, 50, 75, panel);
            bebidasCompradas.add(bebida);
            bebida = null;
         }

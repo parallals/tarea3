@@ -42,7 +42,8 @@ class PanelPrincipal extends JPanel{//se ve en el centro de la ventana
          }
     }
            
-    private class EscuchaRaton1 implements MouseListener{     
+    private class EscuchaRaton1 implements MouseListener{
+        
         @Override
         public void mousePressed(MouseEvent me){
             
@@ -84,8 +85,7 @@ class PanelPrincipal extends JPanel{//se ve en el centro de la ventana
             
             if(exp.DepositoBebidaSacar != null){
                 if(me.getX() >= 1131 && me.getY() <= 528 +50 && me.getX() <= 1131+75 && me.getY() >= 528){
-                    com.bebida = exp.DepositoBebidaSacar;
-                    exp.DepositoBebidaSacar = null;
+                    com.RetirarBebida();
                     PanelPrincipal.this.repaint();
                 }
             }

@@ -1,6 +1,4 @@
 package tarea3;
-import java.awt.Color;
-import java.awt.Graphics;
 import java.util.ArrayList;
 
 public abstract class Deposito {

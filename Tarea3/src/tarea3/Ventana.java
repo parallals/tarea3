@@ -30,5 +30,5 @@ public class Ventana extends JFrame {
         */
    }   
 }
-
+//w = 1264  y  h = 681
 

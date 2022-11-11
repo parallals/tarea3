@@ -27,3 +27,10 @@ class EleccionInexistenteException extends RuntimeException{
         super(mensaje);
     }
 }
+
+class DepositoBebidaSacarException extends RuntimeException{
+    public DepositoBebidaSacarException(){}
+    public DepositoBebidaSacarException(String mensaje){
+        super(mensaje);
+    }
+}

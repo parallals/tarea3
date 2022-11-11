@@ -43,7 +43,7 @@ public class Comprador{
             expendedor.ComprarBebida(BebidaElegida, moneda);
             bebida = expendedor.getBebida();
             this.sabor =  bebida.beber();
-        } catch (NoHayBebidaException | PagoInsuficienteException | PagoIncorrectoException | EleccionInexistenteException e){
+        } catch (DepositoBebidaSacarException | NoHayBebidaException | PagoInsuficienteException | PagoIncorrectoException | EleccionInexistenteException e){
             System.out.println(e.getMessage());
             bebida = null;
             this.sabor = null;

@@ -15,7 +15,7 @@ class PanelPrincipal extends JPanel{//se ve en el centro de la ventana
     
     public PanelPrincipal() { 
         this.exp = new Expendedor(5,500); 
-        this.com = new Comprador(null, 0, exp); 
+        this.com = new Comprador(exp); 
         EscuchaRaton1 er1 = new EscuchaRaton1();
         this.addMouseListener(er1);
     }
@@ -27,7 +27,7 @@ class PanelPrincipal extends JPanel{//se ve en el centro de la ventana
         int h = size.height;
         this.setBackground(Color.gray);
         exp.paint(g,w,h,this);
-        com.paint(g, this);
+        com.paint(g,w,h,this);
         try{ 
             Image i1 = new ImageIcon(this.getClass().getResource("../Textures/cocacola-logo.jpg")).getImage();
             g.drawImage(i1,1095, 100, 120, 50, this);
@@ -44,53 +44,70 @@ class PanelPrincipal extends JPanel{//se ve en el centro de la ventana
            
     private class EscuchaRaton1 implements MouseListener{     
         @Override
-        public void mouseClicked(MouseEvent me) { 
-        }    
-        @Override
         public void mousePressed(MouseEvent me){
+            
             if(me.getX() >= 1095 && me.getY() <= 100 +50 && me.getX() <= 1095+120 && me.getY() >= 100){
-                System.out.println("presionada la coca");
                 try{
-                    exp.ComprarBebida(1,new Moneda500());
+                    com.PagarBebida(1);
                 } catch (NoHayBebidaException | PagoInsuficienteException | PagoIncorrectoException | EleccionInexistenteException e){
                     System.out.println(e.getMessage());
                 }
                 PanelPrincipal.this.repaint();
             } 
+            
             if(me.getX() >= 1095 && me.getY() <= 160 +50 && me.getX() <= 1095+120 && me.getY() >= 160){
-                System.out.println("presionada la sprite");
                 try{
-                    exp.ComprarBebida(2,new Moneda500());
+                    com.PagarBebida(2);
                 } catch (NoHayBebidaException | PagoInsuficienteException | PagoIncorrectoException | EleccionInexistenteException e){
                     System.out.println(e.getMessage());
                 }
                 PanelPrincipal.this.repaint();
             } 
+            
             if(me.getX() >= 1095 && me.getY() <= 220 +50 && me.getX() <= 1095+120 && me.getY() >= 220){
-                System.out.println("presionada la fanta");
                 try{
-                    exp.ComprarBebida(3,new Moneda500());
+                    com.PagarBebida(3);
                 } catch (NoHayBebidaException | PagoInsuficienteException | PagoIncorrectoException | EleccionInexistenteException e){
                     System.out.println(e.getMessage());
                 }
                 PanelPrincipal.this.repaint();
             } 
+            
             if(me.getX() >= 1095 && me.getY() <= 280 +50 && me.getX() <= 1095+120 && me.getY() >= 280){
-                System.out.println("presionada la limonsoda");
                 try{
-                    exp.ComprarBebida(4,new Moneda500());
+                    com.PagarBebida(4);
                 } catch (NoHayBebidaException | PagoInsuficienteException | PagoIncorrectoException | EleccionInexistenteException e){
                     System.out.println(e.getMessage());
                 }
                 PanelPrincipal.this.repaint();
             } 
+            
             if(exp.DepositoBebidaSacar != null){
                 if(me.getX() >= 1131 && me.getY() <= 528 +50 && me.getX() <= 1131+75 && me.getY() >= 528){
+                    com.bebida = exp.DepositoBebidaSacar;
                     exp.DepositoBebidaSacar = null;
                     PanelPrincipal.this.repaint();
                 }
-             }
+            }
+            
+            if(me.getX()>=140 && me.getY()<=600+80 && me.getX()<=140+80 && me.getY()>=600){
+                com.DarMoneda(1);      
+                PanelPrincipal.this.repaint();          
+            } 
+            
+            if(me.getX()>=240 && me.getY()<=600+80 && me.getX()<=240+80 && me.getY()>=600){
+                com.DarMoneda(2);
+                PanelPrincipal.this.repaint();            
+            } 
+            
+            if(me.getX()>=340 && me.getY()<=600+80 && me.getX()<=340+80 && me.getY()>=600){
+                com.DarMoneda(3);     
+                PanelPrincipal.this.repaint();           
+            } 
         }
+        @Override
+        public void mouseClicked(MouseEvent me) { 
+        }    
         @Override
         public void mouseReleased(MouseEvent me) {
         } // el llamado al soltar el botón

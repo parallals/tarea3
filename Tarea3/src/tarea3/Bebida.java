@@ -1,5 +1,4 @@
 package tarea3;
-
 import java.awt.Graphics;
 import java.awt.Image;
 import javax.swing.ImageIcon;
@@ -22,6 +21,7 @@ class CocaCola extends Bebida{
     public String beber(){
         return "CocaCola";
     }
+    
     @Override
     public void paint(Graphics g, int x, int y, int w, int h, JPanel panel){
         try {
@@ -31,16 +31,19 @@ class CocaCola extends Bebida{
             System.out.println(e.getMessage());
         }
     }
+    
     public CocaCola(int numSerie){
         super(numSerie);
     }
 }
+
 
 class Sprite extends Bebida{
     @Override
     public String beber(){
         return "Sprite";
     }
+    
     @Override
     public void paint(Graphics g, int x, int y, int w, int h, JPanel panel){
         try {
@@ -50,19 +53,19 @@ class Sprite extends Bebida{
             System.out.println(e.getMessage());
         }
     }
+    
     public Sprite(int numSerie){
         super(numSerie);
     }
 }
+
 
 class Fanta extends Bebida{
     @Override
     public String beber(){
         return "Fanta";
     }
-    public Fanta(int numSerie){
-        super(numSerie);
-    }
+    
     @Override
     public void paint(Graphics g, int x, int y, int w, int h, JPanel panel){
         try {
@@ -72,13 +75,19 @@ class Fanta extends Bebida{
             System.out.println(e.getMessage());
         }
     }
+    
+    public Fanta(int numSerie){
+        super(numSerie);
+    }
 }
+
 
 class LimonSoda extends Bebida{
     @Override
     public String beber(){
         return "LimonSoda";
     }
+    
     @Override
     public void paint(Graphics g, int x, int y, int w, int h, JPanel panel){
         try {
@@ -88,6 +97,7 @@ class LimonSoda extends Bebida{
             System.out.println(e.getMessage());
         }
     }
+    
     public LimonSoda(int numSerie){
         super(numSerie);
     }

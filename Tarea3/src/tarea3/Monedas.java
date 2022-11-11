@@ -5,22 +5,28 @@ import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
 abstract class Moneda{
+    private final int serie;
     abstract public int getValor();
-    public String getSerie(){
-        return toString();
+    public int getSerie(){
+        return serie;
     }
-    public Moneda(){
+    public Moneda(int serie){
+        this.serie = serie;
     }
     public abstract void paint(Graphics g, int x, int y, int w, int h, JPanel panel);
 }
 
 class Moneda1000 extends Moneda{
-    public Moneda1000(){
+    
+    public Moneda1000(int serie){
+        super(serie);
     }
+    
     @Override
     public int getValor(){
         return 1000;
     }
+    
     @Override
     public void paint(Graphics g, int x, int y, int w, int h, JPanel panel){
         try {
@@ -32,13 +38,17 @@ class Moneda1000 extends Moneda{
     }
 }
 
+
 class Moneda500 extends Moneda{
-    public Moneda500(){
+    
+    public Moneda500(int serie){
+        super(serie);
     }
     @Override
     public int getValor(){
         return 500;
     }
+    
     @Override
     public void paint(Graphics g, int x, int y, int w, int h, JPanel panel){
         try {
@@ -50,13 +60,18 @@ class Moneda500 extends Moneda{
     }
 }
 
+
 class Moneda100 extends Moneda{
-    public Moneda100(){
+    
+    public Moneda100(int serie){
+        super(serie);
     }
+    
     @Override
     public int getValor(){
         return 100;
     }
+    
     @Override
     public void paint(Graphics g, int x, int y, int w, int h, JPanel panel){
         try {

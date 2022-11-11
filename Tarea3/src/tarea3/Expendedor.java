@@ -24,11 +24,9 @@ class Expendedor extends Deposito{
                     throw new NoHayBebidaException("No quedan CocaColas");
                 }else{
                     for(int i=0 ;  i<Aux ; i++){
-                        DepositoVuelto.add(new Moneda100());
+                        DepositoVuelto.add(new Moneda100(1));
                     }
-                    moneda = null;
                     DepositoBebidaSacar = DepositoCoca.remove(0);
-                    System.out.println("COMPRADA");
                 }
                 break;
             case 2:
@@ -37,9 +35,8 @@ class Expendedor extends Deposito{
                     throw new NoHayBebidaException("No quedan Sprites");
                 }else{
                     for(int i=0 ;  i<Aux  ; i++){
-                        DepositoVuelto.add(new Moneda100());
+                        DepositoVuelto.add(new Moneda100(1));
                     }
-                    moneda = null;
                     DepositoBebidaSacar = DepositoSprite.remove(0);
                 }
                 break;
@@ -49,9 +46,8 @@ class Expendedor extends Deposito{
                     throw new NoHayBebidaException("No quedan Fantas");
                 }else{
                     for(int i=0 ;  i<Aux  ; i++){
-                        DepositoVuelto.add(new Moneda100());
+                        DepositoVuelto.add(new Moneda100(1));
                     }
-                    moneda = null;
                     DepositoBebidaSacar = DepositoFanta.remove(0);
                 }
                 break;
@@ -61,9 +57,8 @@ class Expendedor extends Deposito{
                     throw new NoHayBebidaException("No quedan LimonSoda");
                 }else{
                     for(int i=0 ;  i<Aux  ; i++){
-                        DepositoVuelto.add(new Moneda100());
+                        DepositoVuelto.add(new Moneda100(1));
                     }
-                    moneda = null;
                     DepositoBebidaSacar = DepositoLimonSoda.remove(0);
                 }
                 break;
@@ -95,13 +90,13 @@ class Expendedor extends Deposito{
     }
     
     public void paint(Graphics g,int w, int h, JPanel panel){
-        g.setColor(new Color(50,10,10)); //cajÃ³n
+        g.setColor(new Color(150,10,10)); //cajon
         g.fillRect(19*w/36,h/24, 16*w/36,22*h/24);
         g.setColor(new Color(200,190,190)); //ventanilla
         g.fillRect(20*w/36,h/24+h/36, 3*w/10,12*h/14);
         g.setColor(new Color(240,120,125)); //DepositoBebidaSacar
         g.fillRect(221*w/256, 30*h/40, w/10, 5*h/28);
-        g.setColor(new Color(200,150,250));
+        g.setColor(new Color(200,150,250)); //DepositoVuelto
         g.fillRect(221*w/256, 22*h/40, w/10, 5*h/28);
         for(int j = 0; j < DepositoCoca.size() ; j++){
             DepositoCoca.get(j).paint(g, 725, 20+(j+1)*100, 50, 75, panel);

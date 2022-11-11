@@ -1,13 +1,15 @@
 package tarea3;
+
 import javax.swing.*;
 import java.awt.*;
 
+
 class Expendedor extends Deposito{
-    
+    // PROPIEDADES
     private final int precioBebidas;
     protected int serieMonedas;
-    
-    public void ComprarBebida(int BebidaElegida, Moneda moneda) throws DepositoBebidaSacarException, NoHayBebidaException, PagoInsuficienteException, PagoIncorrectoException, EleccionInexistenteException{
+    // METODOS
+    public void ComprarBebida(int BebidaElegida, Moneda moneda) throws DepositoBebidaSacarException, NoHayBebidaException, PagoInsuficienteException, PagoIncorrectoException{
         
         if(moneda == null){
             throw new PagoIncorrectoException("Inserte moneda valida");
@@ -99,11 +101,6 @@ class Expendedor extends Deposito{
                     DepositoBebidaSacar = DepositoLimonSoda.remove(0);
                 }
             }
-                
-            default -> {
-                DepositoVuelto.add(moneda);
-                throw new EleccionInexistenteException("Error de seleccion");
-            }
         }
     }
     
@@ -116,9 +113,9 @@ class Expendedor extends Deposito{
     }
     
     public Bebida getBebida(){
-                Bebida aux = DepositoBebidaSacar;
-                DepositoBebidaSacar = null;
-                return aux;
+        Bebida aux = DepositoBebidaSacar;
+        DepositoBebidaSacar = null;
+        return aux;
     }
     
     public Expendedor(int numBebidas, int precioBebidas){

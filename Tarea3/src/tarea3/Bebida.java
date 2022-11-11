@@ -1,22 +1,30 @@
 package tarea3;
-import java.awt.Graphics;
-import java.awt.Image;
+
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
+import java.awt.Graphics;
+import java.awt.Image;
 
+/*______________________________________BEBIDA______________________________________*/
 public abstract class Bebida{
+    // PROPIEDADES
     private final int numSerie;
+    // METODOS
+    public abstract String beber();
+    public abstract void paint(Graphics g, int x, int y, int w, int h, JPanel panel);
+    
     public int getSerie(){
         return numSerie;
     }
-    public abstract String beber();
+    
     public Bebida(int numSerie){
         this.numSerie = numSerie;
-    }//../Textures/cocacola.png
-    public abstract void paint(Graphics g, int x, int y, int w, int h, JPanel panel);
+    }
 }
 
+/*______________________________________COCACOLA______________________________________*/
 class CocaCola extends Bebida{
+    // METODOS
     @Override
     public String beber(){
         return "CocaCola";
@@ -37,8 +45,9 @@ class CocaCola extends Bebida{
     }
 }
 
-
+/*______________________________________SPRITE______________________________________*/
 class Sprite extends Bebida{
+    // METODOS
     @Override
     public String beber(){
         return "Sprite";
@@ -59,8 +68,9 @@ class Sprite extends Bebida{
     }
 }
 
-
+/*______________________________________FANTA______________________________________*/
 class Fanta extends Bebida{
+    // METODOS
     @Override
     public String beber(){
         return "Fanta";
@@ -81,8 +91,9 @@ class Fanta extends Bebida{
     }
 }
 
-
+/*______________________________________LIMONSODA______________________________________*/
 class LimonSoda extends Bebida{
+    // METODOS
     @Override
     public String beber(){
         return "LimonSoda";

@@ -1,28 +1,22 @@
 package tarea3;
-import java.awt.Color;
-import java.awt.Graphics;
-import java.awt.Image;
+
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
+import java.awt.Graphics;
 import java.util.ArrayList;
+import java.awt.Image;
+import java.awt.Color;
+
 
 public class Comprador{
-    
-    protected Bebida bebida;
+    // PROPIEDADES
     private final ArrayList<Bebida> bebidasCompradas;
     private final ArrayList<Moneda> Monedero;
-    private Moneda moneda;
     private final Expendedor exp;
+    protected Bebida bebida;
+    private Moneda moneda;
     private int serieMonedas;
-
-    public Comprador(Expendedor expendedor){
-        bebidasCompradas = new ArrayList<>();
-        Monedero = new ArrayList<>();
-        serieMonedas = 0;
-        bebida = null;
-        exp = expendedor;
-    }
-    
+    // METODOS
     public void DarMoneda(int opcion){
         switch(opcion){
             case 1 -> {
@@ -43,7 +37,7 @@ public class Comprador{
     public void PagarBebida(int BebidaElegida){
         try{
             exp.ComprarBebida(BebidaElegida, moneda);
-        } catch (NoHayBebidaException | PagoInsuficienteException | PagoIncorrectoException | EleccionInexistenteException e){
+        } catch (NoHayBebidaException | PagoInsuficienteException | PagoIncorrectoException e){
             System.out.println(e.getMessage());
         }
             moneda = null;
@@ -97,5 +91,13 @@ public class Comprador{
            bebidasCompradas.add(bebida);
            bebida = null;
         }
+    }
+    
+    public Comprador(Expendedor expendedor){
+        bebidasCompradas = new ArrayList<>();
+        Monedero = new ArrayList<>();
+        serieMonedas = 0;
+        bebida = null;
+        exp = expendedor;
     }
 }

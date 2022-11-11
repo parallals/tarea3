@@ -1,5 +1,6 @@
 package tarea3;
 
+/*______________________________________MONEDA NULL______________________________________*/
 class PagoIncorrectoException extends RuntimeException{
     public PagoIncorrectoException(){}
     public PagoIncorrectoException(String mensaje){
@@ -7,6 +8,7 @@ class PagoIncorrectoException extends RuntimeException{
     }
 }
 
+/*______________________________________FALTA DINERO______________________________________*/
 class PagoInsuficienteException extends RuntimeException{
     public PagoInsuficienteException(){}
     public PagoInsuficienteException(String mensaje){
@@ -14,6 +16,7 @@ class PagoInsuficienteException extends RuntimeException{
     }
 }
 
+/*___________________________________SE ACABO LA BEBIDA____________________________________*/
 class NoHayBebidaException extends RuntimeException{
     public NoHayBebidaException(){}
     public NoHayBebidaException(String mensaje){
@@ -21,13 +24,7 @@ class NoHayBebidaException extends RuntimeException{
     }
 }
 
-class EleccionInexistenteException extends RuntimeException{
-    public EleccionInexistenteException(){}
-    public EleccionInexistenteException(String mensaje){
-        super(mensaje);
-    }
-}
-
+/*______________________________RETIRAR BEBIDA DE LA MAQUINA_______________________________*/
 class DepositoBebidaSacarException extends RuntimeException{
     public DepositoBebidaSacarException(){}
     public DepositoBebidaSacarException(String mensaje){

@@ -1,11 +1,14 @@
 package tarea3;
+
 import java.awt.BorderLayout;
-import java.awt.Component;
 import javax.swing.JFrame;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
+import java.awt.Component;
+
 
 public class Ventana extends JFrame {
+    // METODOS
     public Ventana(){
         super();
         this.setLayout(new BorderLayout());

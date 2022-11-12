@@ -44,7 +44,9 @@ public class Comprador{
     }
     
     public void RetirarVuelto(){
-        Monedero.add(exp.getVuelto());
+        if(exp.getVuelto() != null){
+            Monedero.add(exp.getVuelto());
+        }
     }
         
     public void RetirarBebida(){

@@ -150,6 +150,9 @@ class Expendedor extends Deposito{
         g.setColor(new Color(150,10,10)); //cajon
         g.fillRect(19*w/36,h/24, 16*w/36,22*h/24);
         
+        g.setColor(new Color(255,10,10)); // boton refill
+        g.fillRect(33*w/36,h/12, 1*w/36,1*h/24);
+        
         g.setColor(new Color(200,190,190)); //ventanilla
         g.fillRect(20*w/36,h/24+h/36, 3*w/10,12*h/14);
         

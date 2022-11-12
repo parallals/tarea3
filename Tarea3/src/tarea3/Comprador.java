@@ -69,16 +69,16 @@ public class Comprador{
         g.fillRect(7*w/72,41*h/48, 9*w/36, 5*h/24);
         try {
             Image i1 = new ImageIcon(this.getClass().getResource("../Textures/Moneda100.png")).getImage();
-            g.drawImage(i1, 140, 600, 80, 80, panel);
+            g.drawImage(i1, (int)(w/9.14), (int)(h/1.15), w/16, h/9, panel);
             Image i2 = new ImageIcon(this.getClass().getResource("../Textures/Moneda500.png")).getImage();
-            g.drawImage(i2, 240, 600, 80, 80, panel);
+            g.drawImage(i2, (int)(w/9.14) +(int)(w/12.8), (int)(h/1.15), w/16, h/9, panel);
             Image i3 = new ImageIcon(this.getClass().getResource("../Textures/Moneda1000.png")).getImage();
-            g.drawImage(i3, 340, 600, 80, 80, panel);
+            g.drawImage(i3, (int)(w/9.14) +(int)(2*w/12.8), (int)(h/1.15), w/16, h/9, panel);
         } catch (Exception e){
             System.out.println(e.getMessage());
         }
         if(moneda!=null){
-            moneda.paint(g, 570, 500, 80, 80, panel);
+            moneda.paint(g, (int)(w/2.24), (int)(h/1.44), w/16, h/9, panel);
         }
         for(int j = 0; j < bebidasCompradas.size() ; j++){ //Comprar bebida
             if(j<19){
@@ -103,13 +103,13 @@ public class Comprador{
         g.fillRect(1*w/72, 10*h/24, 3*w/36, 8*h/24);
         for(int j = 0; j < Monedero.size() ; j++){
             if(j<7){
-                Monedero.get(j).paint(g, 3*w/144, j*30+21*h/48, 30, 30, panel);
+                Monedero.get(j).paint(g, 3*w/144, j*30+21*h/48, (int)(w/42.6), h/24, panel);
             }else if(j<14){
-                Monedero.get(j).paint(g, 5*w/144, (j-7)*30+21*h/48, 30, 30, panel);
+                Monedero.get(j).paint(g, 5*w/144, (j-7)*30+21*h/48, (int)(w/42.6), h/24, panel);
             }else if(j<21){
-                Monedero.get(j).paint(g, 7*w/144, (j-14)*30+21*h/48, 30, 30, panel);
+                Monedero.get(j).paint(g, 7*w/144, (j-14)*30+21*h/48,  (int)(w/42.6), h/24, panel);
             }else if(j<28){
-                Monedero.get(j).paint(g, 9*w/144, (j-21)*30+21*h/48, 30, 30, panel);
+                Monedero.get(j).paint(g, 9*w/144, (j-21)*30+21*h/48,(int)(w/42.6), h/24, panel);
             }else{
                 Monedero.remove(28);
             }

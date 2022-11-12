@@ -150,7 +150,7 @@ class Expendedor extends Deposito{
         int y = h/24;
         
         g.setColor(new Color(150,10,10)); //cajon
-        g.fillRect(x,y, 16*w/36,22*y);
+        g.fillRect(19*w/36,y, 16*w/36,22*y);
         
         g.setColor(new Color(255,10,10)); // boton refill
         g.fillRect(33*w/36,h/12, 1*w/36,1*h/24);
@@ -187,16 +187,16 @@ class Expendedor extends Deposito{
         
         if(DepositoBebidaSacar != null){
             DepositoBebidaSacar.setXY(229*w/256, 31*h/40);
-            DepositoBebidaSacar.paint(g, 50, 75, panel);
+            DepositoBebidaSacar.paint(g, (int)(w/25.6), (int)(h/9.6), panel);
         }
         
         for(int j = 0; j < DepositoVuelto.size() ; j++){
             if(j<4){
-                DepositoVuelto.get(j).paint(g, 221*w/256+(j*25), 26*h/40, 50, 50, panel);
+                DepositoVuelto.get(j).paint(g, 221*w/256+(j*25), 26*h/40, (int)(w/25.6), (int)(h/14.4), panel);
             }else if(j<8){
-                DepositoVuelto.get(j).paint(g, 221*w/256+((j-4)*25), 24*h/40, 50, 50, panel);
+                DepositoVuelto.get(j).paint(g, 221*w/256+((j-4)*25), 24*h/40, (int)(w/25.6), (int)(h/14.4), panel);
             }else if(j<12){
-                DepositoVuelto.get(j).paint(g, 221*w/256+((j-8)*25), 22*h/40, 50, 50, panel);
+                DepositoVuelto.get(j).paint(g, 221*w/256+((j-8)*25), 22*h/40, (int)(w/25.6), (int)(h/14.4), panel);
             }else{
                 //Error>retire vuelto
             }

@@ -13,24 +13,14 @@ public class Ventana extends JFrame {
         super();
         this.setLayout(new BorderLayout());
         this.setTitle("Expendedor");
-        setResizable(false); // Fija el tamaño de la ventana.
+        setResizable(true); // Fija el tamaño de la ventana.
         this.setVisible(true); 
         this.add(new PanelPrincipal());
         this.setSize(1280,720);
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.setSize(1280,720);      
         setLocationRelativeTo(null); // Centra la ventana.
-        /*
-        getContentPane().addComponentListener(new ComponentAdapter() {
-            @Override
-            public void componentResized(ComponentEvent e) {
-                Component c = (Component)e.getSource();
-                int w = c.getWidth();
-                int h = c.getHeight();
-                System.out.println("w = "+w+ "  y  h = "+h);
-            }
-        });
-        */
+
    }   
 }
 // Resolucion: < w = 1264  y  h = 681 >

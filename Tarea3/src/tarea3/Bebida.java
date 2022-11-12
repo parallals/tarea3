@@ -1,7 +1,6 @@
 package tarea3;
 
 import java.awt.Color;
-import java.awt.Font;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 import java.awt.Graphics;
@@ -17,6 +16,7 @@ public abstract class Bebida{
     // METODOS
     public abstract String beber();
     public abstract void paint(Graphics g, int w, int h, JPanel panel);
+    
     public int getX(){
         return x;
     }
@@ -24,6 +24,7 @@ public abstract class Bebida{
     public int getY(){
         return y;
     }
+    
     public void setX(int x){
         this.x = x;
     }
@@ -31,10 +32,12 @@ public abstract class Bebida{
     public void setY(int y){
         this.y = y;
     }
+    
     public void setXY(int x, int y){
         this.x = x;
         this.y = y;
     }
+    
     public int getSerie(){
         return numSerie;
     }

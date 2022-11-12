@@ -40,7 +40,7 @@ class Expendedor extends Deposito{
                         DepositoVuelto.add(new Moneda100(Moneda.serieMonedas));
                         Moneda.serieMonedas = Moneda.serieMonedas+1;
                     }
-                    DepositoBebidaSacar = DepositoCoca.remove(0);
+                    DepositoBebidaSacar = DepositoCoca.remove(DepositoCoca.size()-1);
                 }
             }
                 
@@ -59,7 +59,7 @@ class Expendedor extends Deposito{
                         DepositoVuelto.add(new Moneda100(Moneda.serieMonedas));
                         Moneda.serieMonedas = Moneda.serieMonedas+1;
                     }
-                    DepositoBebidaSacar = DepositoSprite.remove(0);
+                    DepositoBebidaSacar = DepositoSprite.remove(DepositoSprite.size()-1);
                 }
             }
                 
@@ -78,7 +78,7 @@ class Expendedor extends Deposito{
                         DepositoVuelto.add(new Moneda100(Moneda.serieMonedas));
                         Moneda.serieMonedas = Moneda.serieMonedas+1;
                     }
-                    DepositoBebidaSacar = DepositoFanta.remove(0);
+                    DepositoBebidaSacar = DepositoFanta.remove(DepositoFanta.size()-1);
                 }
             }
                 
@@ -97,7 +97,7 @@ class Expendedor extends Deposito{
                         DepositoVuelto.add(new Moneda100(Moneda.serieMonedas));
                         Moneda.serieMonedas = Moneda.serieMonedas+1;
                     }
-                    DepositoBebidaSacar = DepositoLimonSoda.remove(0);
+                    DepositoBebidaSacar = DepositoLimonSoda.remove(DepositoLimonSoda.size()-1);
                 }
             }
         }
@@ -144,6 +144,30 @@ class Expendedor extends Deposito{
             Bebida.serieBebidas = Bebida.serieBebidas+1;
         }
     }
+    
+    public void SetXY(){
+        for(int i = DepositoCoca.size(); i< 5 ; i++){
+            CocaCola aux = new CocaCola(Bebida.serieBebidas);
+            DepositoCoca.add(aux);
+            Bebida.serieBebidas = Bebida.serieBebidas+1;
+        }
+        for(int i = DepositoSprite.size(); i< 5; i++){
+            Sprite aux = new Sprite(Bebida.serieBebidas);
+            DepositoSprite.add(aux);
+            Bebida.serieBebidas = Bebida.serieBebidas+1;
+        }
+        for(int i = DepositoFanta.size(); i< 5; i++){
+            Fanta aux = new Fanta(Bebida.serieBebidas);
+            DepositoFanta.add(aux);
+            Bebida.serieBebidas = Bebida.serieBebidas+1;
+        }
+        for(int i = DepositoLimonSoda.size(); i< 5 ; i++){
+            LimonSoda aux = new LimonSoda(Bebida.serieBebidas);
+            DepositoLimonSoda.add(aux);
+            Bebida.serieBebidas = Bebida.serieBebidas+1;
+        }
+    }
+    
     public void paint(Graphics g,int w, int h, JPanel panel){
         
         g.setColor(new Color(150,10,10)); //cajon

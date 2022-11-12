@@ -162,23 +162,23 @@ class Expendedor extends Deposito{
         g.setFont(newFont);
         for(int j = 0; j < DepositoCoca.size() ; j++){
             Bebida aux = DepositoCoca.get(j);
-            aux.setXY(725, 20+(j+1)*100);
-            DepositoCoca.get(j).paint(g, 50, 75, panel);
+            aux.setXY(w/2+w/16, (h/36)+(j+1)*100);
+            DepositoCoca.get(j).paint(g, w/(int)25.6, h/(int)9.6, panel);
         }
         for(int j = 0; j < DepositoSprite.size() ; j++){
             Bebida aux = DepositoSprite.get(j);
-            aux.setXY(795, 20+(j+1)*100);
-            DepositoSprite.get(j).paint(g, 50, 75, panel);
+            aux.setXY(w/2+2*(w/16), (h/36)+(j+1)*100);
+            DepositoSprite.get(j).paint(g, w/(int)25.6, h/(int)9.6, panel);
         }
         for(int j = 0; j < DepositoFanta.size() ; j++){
             Bebida aux = DepositoFanta.get(j);
-            aux.setXY(885, 20+(j+1)*100);
-            DepositoFanta.get(j).paint(g, 50, 75, panel);
+            aux.setXY(w/2+3*(w/16), (h/36)+(j+1)*100);
+            DepositoFanta.get(j).paint(g, w/(int)25.6, h/(int)9.6, panel);
         }
         for(int j = 0; j < DepositoLimonSoda.size() ; j++){
             Bebida aux = DepositoLimonSoda.get(j);
-            aux.setXY(965, 20+(j+1)*100);
-            DepositoLimonSoda.get(j).paint(g, 50, 75, panel);
+            aux.setXY(w/2+4*(w/16), (h/36)+(j+1)*100);
+            DepositoLimonSoda.get(j).paint(g, w/(int)25.6, h/(int)9.6, panel);
         }
         
         if(DepositoBebidaSacar != null){

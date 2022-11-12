@@ -82,11 +82,11 @@ public class Comprador{
             if(j<19){
                 Bebida aux = bebidasCompradas.get(j);
                 aux.setXY(j*30+50, 40);
-                bebidasCompradas.get(j).paint(g, 25, 47, panel);
+                bebidasCompradas.get(j).paint(g, w/51, h/16, panel);
             }else if(j<37){
                 Bebida aux = bebidasCompradas.get(j);
                 aux.setXY(j*30-520, 95);
-                bebidasCompradas.get(j).paint(g,25, 47, panel);
+                bebidasCompradas.get(j).paint(g, w/51, h/16, panel);
             }else{
                 bebidasCompradas.remove(37);
             }           

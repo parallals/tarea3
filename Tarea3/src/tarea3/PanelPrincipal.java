@@ -48,16 +48,6 @@ class PanelPrincipal extends JPanel{
         
         @Override
         public void mousePressed(MouseEvent me){
-            // Para retirar una bebida comprada.
-            if(me.getX() >= 1131 && me.getY() <= 528 +50 && me.getX() <= 1131+75 && me.getY() >= 528){
-                com.RetirarBebida();
-                PanelPrincipal.this.repaint();
-            }
-            // Boton para retirar vuelto.
-            if(me.getX()>=1091 && me.getY()<=375+122 && me.getX()<=1091+126 && me.getY()>=375){
-                com.RetirarVuelto();     
-                PanelPrincipal.this.repaint();           
-            }
             // Boton para darle una Moneda de 100 al Comprador.
             if(me.getX()>=140 && me.getY()<=600+80 && me.getX()<=140+80 && me.getY()>=600){
                 com.DarMoneda(1);      
@@ -113,6 +103,16 @@ class PanelPrincipal extends JPanel{
                     System.out.println(e.getMessage());
                 }
                 PanelPrincipal.this.repaint();
+            }
+            // Para retirar una bebida comprada.
+            if(me.getX() >= 1131 && me.getY() <= 528 +50 && me.getX() <= 1131+75 && me.getY() >= 528){
+                com.RetirarBebida();
+                PanelPrincipal.this.repaint();
+            }
+            // Boton para retirar vuelto.
+            if(me.getX()>=1091 && me.getY()<=375+122 && me.getX()<=1091+126 && me.getY()>=375){
+                com.RetirarVuelto();     
+                PanelPrincipal.this.repaint();           
             }
             }else{
                 if(me.getX()>=675 && me.getY()<= 30 + 660 && me.getY()>=30 &&  me.getX()<=675+ 569){

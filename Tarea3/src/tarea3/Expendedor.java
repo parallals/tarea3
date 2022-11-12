@@ -120,7 +120,7 @@ class Expendedor extends Deposito{
     
     public Expendedor(int numBebidas, int precioBebidas){
         super(numBebidas);
-        serieMonedas = 5000;
+        serieMonedas = 500;
         this.precioBebidas = precioBebidas;
         DepositoBebidaSacar = null;
     }

@@ -1,5 +1,6 @@
 package tarea3;
 
+import java.awt.Color;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 import java.awt.Graphics;
@@ -38,7 +39,8 @@ class Moneda100 extends Moneda{
         } catch (Exception e){
             System.out.println(e.getMessage());
         }
-            g.drawString(String.valueOf(this.getSerie()), x, y+45);
+            g.setColor(new Color(0, 0, 0));
+            g.drawString(String.valueOf(this.getSerie()), x+w/3, y+5*h/6);
     }
     
     public Moneda100(int serie){
@@ -61,7 +63,8 @@ class Moneda500 extends Moneda{
         } catch (Exception e){
             System.out.println(e.getMessage());
         }
-            g.drawString(String.valueOf(this.getSerie()), x+10, y+45);
+            g.setColor(new Color(0, 0, 0));
+            g.drawString(String.valueOf(this.getSerie()), x+w/3, y+5*h/6);
     }
     
     public Moneda500(int serie){
@@ -85,7 +88,8 @@ class Moneda1000 extends Moneda{
         } catch (Exception e){
             System.out.println(e.getMessage());
         }
-            g.drawString(String.valueOf(this.getSerie()), x, y+45);
+            g.setColor(new Color(0, 0, 0));
+            g.drawString(String.valueOf(this.getSerie()), x+w/3, y+5*h/6);
     }
     
     public Moneda1000(int serie){

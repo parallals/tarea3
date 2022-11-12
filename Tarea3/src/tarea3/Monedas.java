@@ -10,6 +10,7 @@ import java.awt.Image;
 abstract class Moneda{
     
     private final int serie;
+    static int serieMonedas = 0 ;
     // METODOS
     abstract public int getValor();
     public abstract void paint(Graphics g, int x, int y, int w, int h, JPanel panel);

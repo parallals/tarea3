@@ -15,21 +15,20 @@ public class Comprador{
     private final Expendedor exp;
     protected Bebida bebida;
     private Moneda moneda;
-    private int serieMonedas;
     // METODOS
     public void DarMoneda(int opcion){
         switch(opcion){
             case 1 -> {
-                moneda = new Moneda100(serieMonedas);
-                serieMonedas = serieMonedas+1;
+                moneda = new Moneda100(Moneda.serieMonedas);
+                Moneda.serieMonedas = Moneda.serieMonedas+1;
             }
             case 2 -> {
-                moneda = new Moneda500(serieMonedas);
-                serieMonedas = serieMonedas+1;
+                moneda = new Moneda500(Moneda.serieMonedas);
+                Moneda.serieMonedas = Moneda.serieMonedas+1;
             }
             case 3 -> {
-                moneda = new Moneda1000(serieMonedas);
-                serieMonedas = serieMonedas+1;
+                moneda = new Moneda1000(Moneda.serieMonedas);
+                Moneda.serieMonedas = Moneda.serieMonedas+1;
             }
         }
     }
@@ -118,7 +117,6 @@ public class Comprador{
     public Comprador(Expendedor expendedor){
         bebidasCompradas = new ArrayList<>();
         Monedero = new ArrayList<>();
-        serieMonedas = 0;
         bebida = null;
         exp = expendedor;
     }

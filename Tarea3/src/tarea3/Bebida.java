@@ -10,13 +10,10 @@ import java.awt.Image;
 /*______________________________________BEBIDA______________________________________*/
 public abstract class Bebida{
     // PROPIEDADES
-    private int numSerie;
+    private final int numSerie;
     private int x;
     private int y;
-    static int cocaGlobal = 41;
-    static int spriteGlobal = 46;
-    static int fantaGlobal = 51;
-    static int limonsodaGlobal = 56;    
+    static int serieBebidas = 0 ;
     // METODOS
     public abstract String beber();
     public abstract void paint(Graphics g, int w, int h, JPanel panel);

@@ -10,12 +10,10 @@ public abstract class Deposito {
     protected ArrayList<Sprite> DepositoSprite;
     protected ArrayList<Fanta> DepositoFanta;
     protected Bebida DepositoBebidaSacar;
-    protected int serieBebidas;
     protected ArrayList<Moneda> DepositoVuelto;
     protected ArrayList<Moneda> DepositoPagado;
     // METODOS
     protected Deposito(int cantidad){
-        serieBebidas = 0;
         DepositoCoca = new ArrayList<>();
         DepositoSprite = new ArrayList<>();
         DepositoFanta = new ArrayList<>();
@@ -24,11 +22,11 @@ public abstract class Deposito {
         DepositoPagado = new ArrayList<>();
         DepositoBebidaSacar = null;
         for(int i=0 ; i<cantidad ; i++){
-            DepositoCoca.add(new CocaCola(serieBebidas));
-            DepositoSprite.add(new Sprite(serieBebidas+1));
-            DepositoFanta.add(new Fanta(serieBebidas+2));
-            DepositoLimonSoda.add(new LimonSoda(serieBebidas+3));
-            serieBebidas = serieBebidas+4;
+            DepositoCoca.add(new CocaCola(Bebida.serieBebidas));
+            DepositoSprite.add(new Sprite(Bebida.serieBebidas+1));
+            DepositoFanta.add(new Fanta(Bebida.serieBebidas+2));
+            DepositoLimonSoda.add(new LimonSoda(Bebida.serieBebidas+3));
+            Bebida.serieBebidas = Bebida.serieBebidas+4;
         }
     }
 }

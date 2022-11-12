@@ -7,7 +7,6 @@ import java.awt.*;
 class Expendedor extends Deposito{
     // PROPIEDADES
     private final int precioBebidas;
-    protected int serieMonedas;
     // METODOS
     public void ComprarBebida(int BebidaElegida, Moneda moneda) throws DepositoBebidaSacarException, NoHayBebidaException, PagoInsuficienteException, PagoIncorrectoException{
         
@@ -33,13 +32,13 @@ class Expendedor extends Deposito{
                 }else{
                     DepositoPagado.add(moneda);
                     if(Aux>4){
-                        DepositoVuelto.add(new Moneda500(serieMonedas));
-                        serieMonedas = serieMonedas+1;
+                        DepositoVuelto.add(new Moneda500(Moneda.serieMonedas));
+                        Moneda.serieMonedas = Moneda.serieMonedas+1;
                         Aux = Aux-5;
                     }
                     for(int i=0 ;  i<Aux ; i++){
-                        DepositoVuelto.add(new Moneda100(serieMonedas));
-                        serieMonedas = serieMonedas+1;
+                        DepositoVuelto.add(new Moneda100(Moneda.serieMonedas));
+                        Moneda.serieMonedas = Moneda.serieMonedas+1;
                     }
                     DepositoBebidaSacar = DepositoCoca.remove(0);
                 }
@@ -52,13 +51,13 @@ class Expendedor extends Deposito{
                 }else{
                     DepositoPagado.add(moneda);
                     if(Aux>4){
-                        DepositoVuelto.add(new Moneda500(serieMonedas));
-                        serieMonedas = serieMonedas+1;
+                        DepositoVuelto.add(new Moneda500(Moneda.serieMonedas));
+                        Moneda.serieMonedas = Moneda.serieMonedas+1;
                         Aux = Aux-5;
                     }
                     for(int i=0 ;  i<Aux  ; i++){
-                        DepositoVuelto.add(new Moneda100(serieMonedas));
-                        serieMonedas = serieMonedas+1;
+                        DepositoVuelto.add(new Moneda100(Moneda.serieMonedas));
+                        Moneda.serieMonedas = Moneda.serieMonedas+1;
                     }
                     DepositoBebidaSacar = DepositoSprite.remove(0);
                 }
@@ -71,13 +70,13 @@ class Expendedor extends Deposito{
                 }else{
                     DepositoPagado.add(moneda);
                     if(Aux>4){
-                        DepositoVuelto.add(new Moneda500(serieMonedas));
-                        serieMonedas = serieMonedas+1;
+                        DepositoVuelto.add(new Moneda500(Moneda.serieMonedas));
+                        Moneda.serieMonedas = Moneda.serieMonedas+1;
                         Aux = Aux-5;
                     }
                     for(int i=0 ;  i<Aux  ; i++){
-                        DepositoVuelto.add(new Moneda100(serieMonedas));
-                        serieMonedas = serieMonedas+1;
+                        DepositoVuelto.add(new Moneda100(Moneda.serieMonedas));
+                        Moneda.serieMonedas = Moneda.serieMonedas+1;
                     }
                     DepositoBebidaSacar = DepositoFanta.remove(0);
                 }
@@ -90,13 +89,13 @@ class Expendedor extends Deposito{
                 }else{
                     DepositoPagado.add(moneda);
                     if(Aux>4){
-                        DepositoVuelto.add(new Moneda500(serieMonedas));
-                        serieMonedas = serieMonedas+1;
+                        DepositoVuelto.add(new Moneda500(Moneda.serieMonedas));
+                        Moneda.serieMonedas = Moneda.serieMonedas+1;
                         Aux = Aux-5;
                     }
                     for(int i=0 ;  i<Aux  ; i++){
-                        DepositoVuelto.add(new Moneda100(serieMonedas));
-                        serieMonedas = serieMonedas+1;
+                        DepositoVuelto.add(new Moneda100(Moneda.serieMonedas));
+                        Moneda.serieMonedas = Moneda.serieMonedas+1;
                     }
                     DepositoBebidaSacar = DepositoLimonSoda.remove(0);
                 }
@@ -120,27 +119,29 @@ class Expendedor extends Deposito{
     
     public Expendedor(int numBebidas, int precioBebidas){
         super(numBebidas);
-        serieMonedas = 500;
         this.precioBebidas = precioBebidas;
         DepositoBebidaSacar = null;
     }
     public void refill(){
         for(int i = DepositoCoca.size(); i< 5 ; i++){
-            CocaCola aux = new CocaCola(Bebida.cocaGlobal);
-            System.out.println("se lleno");
+            CocaCola aux = new CocaCola(Bebida.serieBebidas);
             DepositoCoca.add(aux);
+            Bebida.serieBebidas = Bebida.serieBebidas+1;
         }
         for(int i = DepositoSprite.size(); i< 5; i++){
-            Sprite aux = new Sprite(Bebida.spriteGlobal);
+            Sprite aux = new Sprite(Bebida.serieBebidas);
             DepositoSprite.add(aux);
+            Bebida.serieBebidas = Bebida.serieBebidas+1;
         }
         for(int i = DepositoFanta.size(); i< 5; i++){
-            Fanta aux = new Fanta(Bebida.fantaGlobal);
+            Fanta aux = new Fanta(Bebida.serieBebidas);
             DepositoFanta.add(aux);
+            Bebida.serieBebidas = Bebida.serieBebidas+1;
         }
         for(int i = DepositoLimonSoda.size(); i< 5 ; i++){
-            LimonSoda aux = new LimonSoda(Bebida.limonsodaGlobal);
+            LimonSoda aux = new LimonSoda(Bebida.serieBebidas);
             DepositoLimonSoda.add(aux);
+            Bebida.serieBebidas = Bebida.serieBebidas+1;
         }
     }
     public void paint(Graphics g,int w, int h, JPanel panel){

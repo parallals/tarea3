@@ -13,7 +13,7 @@ public class Ventana extends JFrame {
         super();
         this.setLayout(new BorderLayout());
         this.setTitle("Expendedor");
-        setResizable(true); // Fija el tamaño de la ventana.
+        setResizable(false); // Fija el tamaño de la ventana.
         this.setVisible(true); 
         this.add(new PanelPrincipal());
         this.setSize(1280,720);

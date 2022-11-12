@@ -144,12 +144,16 @@ class Expendedor extends Deposito{
             Bebida.serieBebidas = Bebida.serieBebidas+1;
         }
     }
+    
     public void paint(Graphics g,int w, int h, JPanel panel){
         int x = 19*w/36;
         int y = h/24;
         
         g.setColor(new Color(150,10,10)); //cajon
         g.fillRect(x,y, 16*w/36,22*y);
+        
+        g.setColor(new Color(255,10,10)); // boton refill
+        g.fillRect(33*w/36,h/12, 1*w/36,1*h/24);
         
         g.setColor(new Color(200,190,190)); //ventanilla
         g.fillRect(x + w/36,y+h/36, 3*w/10,12*h/14);
@@ -159,27 +163,25 @@ class Expendedor extends Deposito{
         
         g.setColor(new Color(200,150,250)); //DepositoVuelto
         g.fillRect(221*w/256, 22*h/40, w/10, 5*h/28);
+        
         Font currentFont = g.getFont();
         Font newFont = currentFont.deriveFont(currentFont.getSize() * 1.2f);
         g.setFont(newFont);
+        
         for(int j = 0; j < DepositoCoca.size() ; j++){
-            Bebida aux = DepositoCoca.get(j);
-            aux.setXY(w/2+w/16, (h/36)+(j+1)*100);
+            DepositoCoca.get(j).setXY(w/2+w/16, (h/36)+600-(j+1)*100);
             DepositoCoca.get(j).paint(g, w/(int)25.6, h/(int)9.6, panel);
         }
         for(int j = 0; j < DepositoSprite.size() ; j++){
-            Bebida aux = DepositoSprite.get(j);
-            aux.setXY(w/2+2*(w/16), (h/36)+(j+1)*100);
+            DepositoSprite.get(j).setXY(w/2+2*(w/16), (h/36)+600-(j+1)*100);
             DepositoSprite.get(j).paint(g, w/(int)25.6, h/(int)9.6, panel);
         }
         for(int j = 0; j < DepositoFanta.size() ; j++){
-            Bebida aux = DepositoFanta.get(j);
-            aux.setXY(w/2+3*(w/16), (h/36)+(j+1)*100);
+            DepositoFanta.get(j).setXY(w/2+3*(w/16), (h/36)+600-(j+1)*100);
             DepositoFanta.get(j).paint(g, w/(int)25.6, h/(int)9.6, panel);
         }
         for(int j = 0; j < DepositoLimonSoda.size() ; j++){
-            Bebida aux = DepositoLimonSoda.get(j);
-            aux.setXY(w/2+4*(w/16), (h/36)+(j+1)*100);
+            DepositoLimonSoda.get(j).setXY(w/2+4*(w/16), (h/36)+600-(j+1)*100);
             DepositoLimonSoda.get(j).paint(g, w/(int)25.6, h/(int)9.6, panel);
         }
         

@@ -55,11 +55,13 @@ public class Comprador{
     }
             
     public void paint(Graphics g, int w, int h, JPanel panel){
+        
         g.setColor(new Color(150,10,10)); //Bebidas Compradas
-        g.fillRect(1*w/72, h/48, 18*w/36, 6*h/24);
+        g.fillRect(w/72, h/48, 18*w/36, 6*h/24);
         try {
             Image i = new ImageIcon(this.getClass().getResource("../Textures/compracompleto.png")).getImage();
-            g.drawImage(i, 150, 180, 500, 500, panel);
+            g.drawImage(i,(int) (w/8.53), h/4, (int)(w/2.56), (int)(h/1.44), panel);
+            //g.drawImage(i, 150, 180, 500, 500, panel););
         } catch (Exception e){
             System.out.println(e.getMessage());
         }
@@ -78,7 +80,7 @@ public class Comprador{
         if(moneda!=null){
             moneda.paint(g, 570, 500, 80, 80, panel);
         }
-        for(int j = 0; j < bebidasCompradas.size() ; j++){
+        for(int j = 0; j < bebidasCompradas.size() ; j++){ //Comprar bebida
             if(j<19){
                 Bebida aux = bebidasCompradas.get(j);
                 aux.setXY(j*30+50, 40);
@@ -91,9 +93,9 @@ public class Comprador{
                 bebidasCompradas.remove(37);
             }           
         }
-        if(bebida != null){
-            bebida.setXY(590, 505);
-               bebida.paint(g, 50, 75, panel);
+        if(bebida != null){ 
+            bebida.setXY((int)(w/2.2),(int)(h/1.4));
+               bebida.paint(g, (int)(w/25.6), (int)(h/9.6), panel);
            bebidasCompradas.add(bebida);
            bebida = null;
         }

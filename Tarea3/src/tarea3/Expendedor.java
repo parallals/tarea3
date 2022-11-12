@@ -145,12 +145,14 @@ class Expendedor extends Deposito{
         }
     }
     public void paint(Graphics g,int w, int h, JPanel panel){
+        int x = 19*w/36;
+        int y = h/24;
         
         g.setColor(new Color(150,10,10)); //cajon
-        g.fillRect(19*w/36,h/24, 16*w/36,22*h/24);
+        g.fillRect(x,y, 16*w/36,22*y);
         
         g.setColor(new Color(200,190,190)); //ventanilla
-        g.fillRect(20*w/36,h/24+h/36, 3*w/10,12*h/14);
+        g.fillRect(x + w/36,y+h/36, 3*w/10,12*h/14);
         
         g.setColor(new Color(240,120,125)); //DepositoBebidaSacar
         g.fillRect(221*w/256, 30*h/40, w/10, 5*h/28);

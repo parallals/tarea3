@@ -44,7 +44,7 @@ public class Comprador{
     }
     
     public void RetirarVuelto(){
-        if(exp.getVuelto() != null){
+        if(exp.DepositoVuelto.get(0) != null){
             Monedero.add(exp.getVuelto());
         }
     }

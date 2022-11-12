@@ -1,0 +1,16 @@
+- Los Depósitos tendrán posiciones relativas al Expendedor el que les dará sus coordenadas al crearlos desde su
+constructor.
+- Cada vez que se saque o se agregue una bebida o moneda desde/a los depósitos, se deberá llamar a
+reposicionar mediante setXY a todas las Moneda o Bebidas almacenadas en ellos.
+- Añadir funcion Refill del Expendedor
+- Correccion de un error que deja tener al comprador una bebida y moneda en la mano
+- Agregar y corregir Exceptions:
+	- Al comprar una bebida sin retirarla del deposito no tenemos un catch correcto
+	- Si compras una bebida, no la sacas del deposito, luego seleccionas la moneda e intentas comprar, la moneda se duppeara al sacar la bebida del deposito (en base a los intentos de compra)
+	- No he descubierto mas
+- Hacer UML.
+- Hacer Sprites.
+- 
+- 
+- 
+- 

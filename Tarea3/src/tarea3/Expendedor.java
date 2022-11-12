@@ -124,7 +124,25 @@ class Expendedor extends Deposito{
         this.precioBebidas = precioBebidas;
         DepositoBebidaSacar = null;
     }
-    
+    public void refill(){
+        for(int i = DepositoCoca.size(); i< 5 ; i++){
+            CocaCola aux = new CocaCola(Bebida.cocaGlobal);
+            System.out.println("se lleno");
+            DepositoCoca.add(aux);
+        }
+        for(int i = DepositoSprite.size(); i< 5; i++){
+            Sprite aux = new Sprite(Bebida.spriteGlobal);
+            DepositoSprite.add(aux);
+        }
+        for(int i = DepositoFanta.size(); i< 5; i++){
+            Fanta aux = new Fanta(Bebida.fantaGlobal);
+            DepositoFanta.add(aux);
+        }
+        for(int i = DepositoLimonSoda.size(); i< 5 ; i++){
+            LimonSoda aux = new LimonSoda(Bebida.limonsodaGlobal);
+            DepositoLimonSoda.add(aux);
+        }
+    }
     public void paint(Graphics g,int w, int h, JPanel panel){
         
         g.setColor(new Color(150,10,10)); //cajon

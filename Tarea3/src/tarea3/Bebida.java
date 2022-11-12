@@ -13,7 +13,10 @@ public abstract class Bebida{
     private int numSerie;
     private int x;
     private int y;
-    
+    static int cocaGlobal = 41;
+    static int spriteGlobal = 46;
+    static int fantaGlobal = 51;
+    static int limonsodaGlobal = 56;    
     // METODOS
     public abstract String beber();
     public abstract void paint(Graphics g, int w, int h, JPanel panel);

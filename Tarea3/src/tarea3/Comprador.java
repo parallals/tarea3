@@ -54,16 +54,16 @@ public class Comprador{
     }
             
     public void paint(Graphics g, int w, int h, JPanel panel){
-        g.setColor(new Color(50, 10, 20)); //Bebidas Compradas
-        g.fillRect(1*w/36, h/24, 17*w/36, 5*h/24);
+        g.setColor(new Color(150,10,10)); //Bebidas Compradas
+        g.fillRect(1*w/72, h/48, 18*w/36, 6*h/24);
         try {
             Image i = new ImageIcon(this.getClass().getResource("../Textures/compracompleto.png")).getImage();
             g.drawImage(i, 150, 180, 500, 500, panel);
         } catch (Exception e){
             System.out.println(e.getMessage());
         }
-        g.setColor(new Color(50, 10, 20)); //Selecciona moneda
-        g.fillRect(3*w/36,21*h/24, 10*w/36, 5*h/24);
+        g.setColor(new Color(150,10,10)); //Selecciona moneda
+        g.fillRect(7*w/72,41*h/48, 9*w/36, 5*h/24);
         try {
             Image i1 = new ImageIcon(this.getClass().getResource("../Textures/Moneda100.png")).getImage();
             g.drawImage(i1, 140, 600, 80, 80, panel);
@@ -95,6 +95,21 @@ public class Comprador{
                bebida.paint(g, 50, 75, panel);
            bebidasCompradas.add(bebida);
            bebida = null;
+        }
+        g.setColor(new Color(150,10,10)); // Monedero
+        g.fillRect(1*w/72, 10*h/24, 3*w/36, 8*h/24);
+        for(int j = 0; j < Monedero.size() ; j++){
+            if(j<7){
+                Monedero.get(j).paint(g, 3*w/144, j*30+21*h/48, 30, 30, panel);
+            }else if(j<14){
+                Monedero.get(j).paint(g, 5*w/144, (j-7)*30+21*h/48, 30, 30, panel);
+            }else if(j<21){
+                Monedero.get(j).paint(g, 7*w/144, (j-14)*30+21*h/48, 30, 30, panel);
+            }else if(j<28){
+                Monedero.get(j).paint(g, 9*w/144, (j-21)*30+21*h/48, 30, 30, panel);
+            }else{
+                Monedero.remove(28);
+            }
         }
     }
     

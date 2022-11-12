@@ -18,7 +18,6 @@ class Expendedor extends Deposito{
             throw new PagoInsuficienteException("Le faltan monedas");
             
         }else if(DepositoBebidaSacar != null){
-            DepositoVuelto.add(moneda);
             throw new DepositoBebidaSacarException("Retire su bebida");
         }
         

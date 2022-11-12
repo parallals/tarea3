@@ -36,8 +36,9 @@ public class Comprador{
     public void PagarBebida(int BebidaElegida){
         try{
             exp.ComprarBebida(BebidaElegida, moneda);
-        } catch (NoHayBebidaException | PagoInsuficienteException | PagoIncorrectoException e){
+        } catch (NoHayBebidaException | PagoInsuficienteException | PagoIncorrectoException | DepositoBebidaSacarException e){
             System.out.println(e.getMessage());
+            
         }
             moneda = null;
     }
@@ -77,7 +78,7 @@ public class Comprador{
         } catch (Exception e){
             System.out.println(e.getMessage());
         }
-        if(moneda!=null){
+        if(moneda!=null && bebida == null){
             moneda.paint(g, (int)(w/2.24), (int)(h/1.44), w/16, h/9, panel);
         }
         for(int j = 0; j < bebidasCompradas.size() ; j++){ //Comprar bebida
@@ -93,11 +94,11 @@ public class Comprador{
                 bebidasCompradas.remove(37);
             }           
         }
-        if(bebida != null){ 
+        if(bebida != null){ //Bebida en la mano despues de comprar
             bebida.setXY((int)(w/2.2),(int)(h/1.4));
-               bebida.paint(g, (int)(w/25.6), (int)(h/9.6), panel);
-           bebidasCompradas.add(bebida);
-           bebida = null;
+            bebida.paint(g, (int)(w/25.6), (int)(h/9.6), panel);
+            bebidasCompradas.add(bebida);
+            bebida = null;
         }
         g.setColor(new Color(150,10,10)); // Monedero
         g.fillRect(1*w/72, 10*h/24, 3*w/36, 8*h/24);

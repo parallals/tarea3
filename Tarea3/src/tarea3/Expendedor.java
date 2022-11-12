@@ -40,7 +40,7 @@ class Expendedor extends Deposito{
                         DepositoVuelto.add(new Moneda100(Moneda.serieMonedas));
                         Moneda.serieMonedas = Moneda.serieMonedas+1;
                     }
-                    DepositoBebidaSacar = DepositoCoca.remove(0);
+                    DepositoBebidaSacar = DepositoCoca.remove(DepositoCoca.size()-1);
                 }
             }
                 

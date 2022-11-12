@@ -67,16 +67,17 @@ class PanelPrincipal extends JPanel{
             if(me.getX() >= 1095 && me.getY() <= 100 +50 && me.getX() <= 1095+120 && me.getY() >= 100){
                 try{
                     com.PagarBebida(1);
-                } catch (NoHayBebidaException | PagoInsuficienteException | PagoIncorrectoException | EleccionInexistenteException e){
+                } catch (NoHayBebidaException | PagoInsuficienteException | PagoIncorrectoException  e){
                     System.out.println(e.getMessage());
                 }
+                
                 PanelPrincipal.this.repaint();
             } 
             // Boton para comprar Sprite.
             if(me.getX() >= 1095 && me.getY() <= 160 +50 && me.getX() <= 1095+120 && me.getY() >= 160){
                 try{
                     com.PagarBebida(2);
-                } catch (NoHayBebidaException | PagoInsuficienteException | PagoIncorrectoException | EleccionInexistenteException e){
+                } catch (NoHayBebidaException | PagoInsuficienteException | PagoIncorrectoException e){
                     System.out.println(e.getMessage());
                 }
                 PanelPrincipal.this.repaint();
@@ -85,7 +86,7 @@ class PanelPrincipal extends JPanel{
             if(me.getX() >= 1095 && me.getY() <= 220 +50 && me.getX() <= 1095+120 && me.getY() >= 220){
                 try{
                     com.PagarBebida(3);
-                } catch (NoHayBebidaException | PagoInsuficienteException | PagoIncorrectoException | EleccionInexistenteException e){
+                } catch (NoHayBebidaException | PagoInsuficienteException | PagoIncorrectoException e){
                     System.out.println(e.getMessage());
                 }
                 PanelPrincipal.this.repaint();
@@ -94,7 +95,7 @@ class PanelPrincipal extends JPanel{
             if(me.getX() >= 1095 && me.getY() <= 280 +50 && me.getX() <= 1095+120 && me.getY() >= 280){
                 try{
                     com.PagarBebida(4);
-                } catch (NoHayBebidaException | PagoInsuficienteException | PagoIncorrectoException | EleccionInexistenteException e){
+                } catch (NoHayBebidaException | PagoInsuficienteException | PagoIncorrectoException e){
                     System.out.println(e.getMessage());
                 }
                 PanelPrincipal.this.repaint();

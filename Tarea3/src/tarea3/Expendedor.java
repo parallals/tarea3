@@ -153,8 +153,8 @@ class Expendedor extends Deposito{
         int x = 19*w/36;
         int y = h/24;
         
-        g.setColor(new Color(150,10,10)); //cajon
-        g.fillRect(19*w/36,y, 16*w/36,22*y);
+        Image i1 = new ImageIcon(this.getClass().getResource("../Textures/expendedor-cajon.png")).getImage();
+        g.drawImage(i1,19*w/36,y, 16*w/36,22*y, panel);
         
         g.setColor(new Color(255,10,10)); // boton refill
         g.fillRect(33*w/36,h/12, 1*w/36,1*h/24);
@@ -162,11 +162,11 @@ class Expendedor extends Deposito{
         g.setColor(new Color(200,190,190)); //ventanilla
         g.fillRect(x + w/36,y+h/36, 3*w/10,12*h/14);
         
-        g.setColor(new Color(240,120,125)); //DepositoBebidaSacar
-        g.fillRect(221*w/256, 30*h/40, w/10, 5*h/28);
+        Image i2 = new ImageIcon(this.getClass().getResource("../Textures/BebidaSacar.png")).getImage();
+        g.drawImage(i2,221*w/256, 30*h/40, w/10, 5*h/28, panel);
         
-        g.setColor(new Color(200,150,250)); //DepositoVuelto
-        g.fillRect(221*w/256, 22*h/40, w/10, 5*h/28);
+        Image i3 = new ImageIcon(this.getClass().getResource("../Textures/Vuelto.png")).getImage();
+        g.drawImage(i3,221*w/256, 22*h/40, w/10, 5*h/28, panel);
         
         Font currentFont = g.getFont();
         Font newFont = currentFont.deriveFont(currentFont.getSize() * 1.2f);

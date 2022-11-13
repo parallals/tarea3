@@ -43,7 +43,7 @@ public class Comprador{
     }
     
     public void PagarBebida(int BebidaElegida){
-        try{
+        try {
             exp.ComprarBebida(BebidaElegida, moneda);
         } catch (NoHayBebidaException | PagoInsuficienteException | PagoIncorrectoException | DepositoBebidaSacarException e){
             System.out.println(e.getMessage());
@@ -52,7 +52,7 @@ public class Comprador{
     }
     
     public void RetirarVuelto(){
-        try{
+        try {
             Monedero.add(exp.getVuelto());
         }catch(DepositoVueltoVacioException e){
             System.out.println(e.getMessage());
@@ -60,8 +60,10 @@ public class Comprador{
     }
         
     public void RetirarBebida(){
-        if(exp.DepositoBebidaSacar != null){
+        try {
             bebida = exp.getBebida();
+        } catch(DepositoBebidaVacioException e){
+            System.out.println(e.getMessage());
         }
     }
             

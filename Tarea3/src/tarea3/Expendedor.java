@@ -112,9 +112,13 @@ class Expendedor extends Deposito{
     }
     
     public Bebida getBebida(){
-        Bebida aux = DepositoBebidaSacar;
-        DepositoBebidaSacar = null;
-        return aux;
+        if(DepositoBebidaSacar == null){
+            throw new DepositoBebidaVacioException("No tiene bebida que retirar");
+        }else{
+            Bebida aux = DepositoBebidaSacar;
+            DepositoBebidaSacar = null;
+            return aux;
+        }
     }
     
     public Expendedor(int numBebidas, int precioBebidas){

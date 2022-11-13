@@ -18,6 +18,7 @@ class Expendedor extends Deposito{
             throw new PagoInsuficienteException("Le faltan monedas");
             
         }else if(DepositoBebidaSacar != null){
+            DepositoVuelto.add(moneda);
             throw new DepositoBebidaSacarException("Retire su bebida");
         }
         
@@ -39,7 +40,7 @@ class Expendedor extends Deposito{
                         DepositoVuelto.add(new Moneda100(Moneda.serieMonedas));
                         Moneda.serieMonedas = Moneda.serieMonedas+1;
                     }
-                    DepositoBebidaSacar = DepositoCoca.remove(DepositoCoca.size()-1);
+                    DepositoBebidaSacar = DepositoCoca.remove(0);
                 }
             }
                 
@@ -102,9 +103,9 @@ class Expendedor extends Deposito{
         }
     }
     
-    public Moneda getVuelto(){
+    public Moneda getVuelto() throws DepositoVueltoVacioException{
         if(DepositoVuelto.isEmpty()){
-            return null;
+            throw new DepositoVueltoVacioException("No tiene vuelto que retirar");
          }else{
             return DepositoVuelto.remove(0);
          }

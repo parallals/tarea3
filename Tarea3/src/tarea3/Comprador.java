@@ -19,14 +19,23 @@ public class Comprador{
     public void DarMoneda(int opcion){
         switch(opcion){
             case 1 -> {
+                if(moneda != null){
+                    Monedero.add(moneda);
+                }
                 moneda = new Moneda100(Moneda.serieMonedas);
                 Moneda.serieMonedas = Moneda.serieMonedas+1;
             }
             case 2 -> {
+                if(moneda != null){
+                    Monedero.add(moneda);
+                }
                 moneda = new Moneda500(Moneda.serieMonedas);
                 Moneda.serieMonedas = Moneda.serieMonedas+1;
             }
             case 3 -> {
+                if(moneda != null){
+                    Monedero.add(moneda);
+                }
                 moneda = new Moneda1000(Moneda.serieMonedas);
                 Moneda.serieMonedas = Moneda.serieMonedas+1;
             }
@@ -38,14 +47,15 @@ public class Comprador{
             exp.ComprarBebida(BebidaElegida, moneda);
         } catch (NoHayBebidaException | PagoInsuficienteException | PagoIncorrectoException | DepositoBebidaSacarException e){
             System.out.println(e.getMessage());
-            
         }
-            moneda = null;
+        moneda = null;
     }
     
     public void RetirarVuelto(){
-        if(exp.DepositoVuelto.get(0) != null){
+        try{
             Monedero.add(exp.getVuelto());
+        }catch(DepositoVueltoVacioException e){
+            System.out.println(e.getMessage());
         }
     }
         
@@ -90,8 +100,6 @@ public class Comprador{
                 Bebida aux = bebidasCompradas.get(j);
                 aux.setXY(j*30-520, 95);
                 bebidasCompradas.get(j).paint(g, w/51, h/16, panel);
-            }else{
-                bebidasCompradas.remove(37);
             }           
         }
         if(bebida != null){ //Bebida en la mano despues de comprar
@@ -111,8 +119,6 @@ public class Comprador{
                 Monedero.get(j).paint(g, 7*w/144, (j-14)*30+21*h/48,  (int)(w/42.6), h/24, panel);
             }else if(j<28){
                 Monedero.get(j).paint(g, 9*w/144, (j-21)*30+21*h/48,(int)(w/42.6), h/24, panel);
-            }else{
-                Monedero.remove(28);
             }
         }
     }

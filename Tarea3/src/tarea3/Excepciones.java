@@ -31,3 +31,19 @@ class DepositoBebidaSacarException extends RuntimeException{
         super(mensaje);
     }
 }
+
+/*_________________________________NO HAY BEBIDA QUE RETIRAR_______________________________*/
+class DepositoBebidaVacioException extends RuntimeException{
+    public DepositoBebidaVacioException(){}
+    public DepositoBebidaVacioException(String mensaje){
+        super(mensaje);
+    }
+}
+
+/*_______________________________NO HAY VUELTO QUE RETIRAR________________________________*/
+class DepositoVueltoVacioException extends RuntimeException{
+    public DepositoVueltoVacioException(){}
+    public DepositoVueltoVacioException(String mensaje){
+        super(mensaje);
+    }
+}

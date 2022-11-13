@@ -12,9 +12,10 @@ public abstract class Bebida{
     private final int numSerie;
     private int x;
     private int y;
-    static int serieBebidas = 0 ;
+    protected static int serieBebidas = 0 ;
     // METODOS
     public abstract String beber();
+    
     public abstract void paint(Graphics g, int w, int h, JPanel panel);
     
     public int getX(){

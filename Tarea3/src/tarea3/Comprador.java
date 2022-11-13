@@ -13,7 +13,7 @@ public class Comprador{
     private final ArrayList<Bebida> bebidasCompradas;
     private final ArrayList<Moneda> Monedero;
     private final Expendedor exp;
-    protected Bebida bebida;
+    private Bebida bebida;
     private Moneda moneda;
     // METODOS
     public void DarMoneda(int opcion){

@@ -1,6 +1,6 @@
 package tarea3;
 
-/*______________________________________MONEDA NULL______________________________________*/
+/*______________________________________NO HAY MONEDA______________________________________*/
 class PagoIncorrectoException extends RuntimeException{
     public PagoIncorrectoException(){}
     public PagoIncorrectoException(String mensaje){

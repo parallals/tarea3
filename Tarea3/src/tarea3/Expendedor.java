@@ -121,12 +121,7 @@ class Expendedor extends Deposito{
         }
     }
     
-    public Expendedor(int numBebidas, int precioBebidas){
-        super(numBebidas);
-        this.precioBebidas = precioBebidas;
-        DepositoBebidaSacar = null;
-    }
-    public void refill(){
+    public void Refill(){
         for(int i = DepositoCoca.size(); i< 5 ; i++){
             CocaCola aux = new CocaCola(Bebida.serieBebidas);
             DepositoCoca.add(aux);
@@ -201,10 +196,13 @@ class Expendedor extends Deposito{
                 DepositoVuelto.get(j).paint(g, 221*w/256+((j-4)*25), 24*h/40, (int)(w/25.6), (int)(h/14.4), panel);
             }else if(j<12){
                 DepositoVuelto.get(j).paint(g, 221*w/256+((j-8)*25), 22*h/40, (int)(w/25.6), (int)(h/14.4), panel);
-            }else{
-                //Error>retire vuelto
             }
         }
-        
+    }
+    
+    public Expendedor(int numBebidas, int precioBebidas){
+        super(numBebidas);
+        this.precioBebidas = precioBebidas;
+        DepositoBebidaSacar = null;
     }
 }

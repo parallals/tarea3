@@ -8,9 +8,9 @@ import java.awt.Image;
 
 /*______________________________________MONEDA______________________________________*/
 abstract class Moneda{
-    
+    //PROPIEDADES
     private final int serie;
-    static int serieMonedas = 0 ;
+    protected static int serieMonedas = 0 ;
     // METODOS
     abstract public int getValor();
     public abstract void paint(Graphics g, int x, int y, int w, int h, JPanel panel);

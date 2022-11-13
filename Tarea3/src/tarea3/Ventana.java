@@ -2,9 +2,6 @@ package tarea3;
 
 import java.awt.BorderLayout;
 import javax.swing.JFrame;
-import java.awt.event.ComponentAdapter;
-import java.awt.event.ComponentEvent;
-import java.awt.Component;
 
 
 public class Ventana extends JFrame {
@@ -13,14 +10,12 @@ public class Ventana extends JFrame {
         super();
         this.setLayout(new BorderLayout());
         this.setTitle("Expendedor");
-        setResizable(true); // Fija el tamaño de la ventana.
+        setResizable(true);
         this.setVisible(true); 
         this.add(new PanelPrincipal());
-        this.setSize(1280,720);
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.setSize(1280,720);      
-        setLocationRelativeTo(null); // Centra la ventana.
-
+        setLocationRelativeTo(null);
    }   
 }
 // Resolucion: < w = 1264  y  h = 681 >

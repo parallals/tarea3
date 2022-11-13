@@ -15,13 +15,7 @@ class PanelPrincipal extends JPanel{
     private final Comprador com; 
     private final Expendedor exp;
     // METODOS
-    public PanelPrincipal() { 
-        this.exp = new Expendedor(5,300); 
-        this.com = new Comprador(exp); 
-        EscuchaRaton1 er1 = new EscuchaRaton1();
-        this.addMouseListener(er1);
-    }
-    
+    @Override
     public void paint(Graphics g){
         super.paint(g);
         Dimension size = this.getSize();
@@ -44,7 +38,7 @@ class PanelPrincipal extends JPanel{
          }
     }
            
-    private class EscuchaRaton1 implements MouseListener{
+    private class EscuchaRaton implements MouseListener{
         
         @Override
         public void mousePressed(MouseEvent me){
@@ -111,7 +105,7 @@ class PanelPrincipal extends JPanel{
             }
             // Boton Refill
             if(me.getX()>=1158 && me.getY()<=57+28 && me.getX()<=1158+35 && me.getY()>=57){
-                exp.refill();
+                exp.Refill();
                 PanelPrincipal.this.repaint();                
             } 
         }
@@ -128,5 +122,12 @@ class PanelPrincipal extends JPanel{
         @Override
         public void mouseExited(MouseEvent me) {
         }
+    }
+    
+    public PanelPrincipal() { 
+        this.exp = new Expendedor(5,300); 
+        this.com = new Comprador(exp); 
+        EscuchaRaton er1 = new EscuchaRaton();
+        this.addMouseListener(er1);
     }
 }

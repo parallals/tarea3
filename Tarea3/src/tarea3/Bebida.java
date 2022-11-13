@@ -63,14 +63,8 @@ class CocaCola extends Bebida{
         } catch (Exception e){
             System.out.println(e.getMessage());
         }
-        if(w == 25 && h == 47 ){
-            g.setColor(Color.black);
-            g.drawString(String.valueOf(this.getSerie()), getX()+2, getY()+45);
-        }
-        else{
-            g.setColor(Color.black);
-            g.drawString(String.valueOf(this.getSerie()), getX()+2, getY()+70);
-        }
+        g.setColor(Color.black);
+        g.drawString(String.valueOf(this.getSerie()), getX()+(w/20), getY()+(9*h/10));
     }
     
     public CocaCola(int numSerie){
@@ -94,14 +88,8 @@ class Sprite extends Bebida{
         } catch (Exception e){
             System.out.println(e.getMessage());
         }
-        if(w == 25 && h == 47 ){
-            g.setColor(Color.white);
-            g.drawString(String.valueOf(this.getSerie()), getX()+2, getY()+45);
-        }
-        else{
-            g.setColor(Color.white);
-            g.drawString(String.valueOf(this.getSerie()), getX()+2, getY()+70);
-        }
+        g.setColor(Color.white);
+        g.drawString(String.valueOf(this.getSerie()), getX()+(w/20), getY()+(9*h/10));
     }
     
     public Sprite(int numSerie){
@@ -125,14 +113,8 @@ class Fanta extends Bebida{
         } catch (Exception e){
             System.out.println(e.getMessage());
         }
-        if(w == 25 && h == 47 ){
-            g.setColor(Color.black);
-            g.drawString(String.valueOf(this.getSerie()), getX()+2, getY()+45);
-        }
-        else{
-            g.setColor(Color.black);
-            g.drawString(String.valueOf(this.getSerie()), getX()+2, getY()+70);
-        }
+        g.setColor(Color.black);
+        g.drawString(String.valueOf(this.getSerie()), getX()+(w/20), getY()+(9*h/10));
     }
     
     public Fanta(int numSerie){
@@ -156,14 +138,8 @@ class LimonSoda extends Bebida{
         } catch (Exception e){
             System.out.println(e.getMessage());
         }
-        if(w == 25 && h == 47 ){
-            g.setColor(Color.white);
-            g.drawString(String.valueOf(this.getSerie()), getX()+2, getY()+45);
-        }
-        else{
-            g.setColor(Color.white);
-            g.drawString(String.valueOf(this.getSerie()), getX()+2, getY()+70);
-        }
+        g.setColor(Color.white);
+        g.drawString(String.valueOf(this.getSerie()), getX()+(w/20), getY()+(9*h/10));
     }
     
     public LimonSoda(int numSerie){

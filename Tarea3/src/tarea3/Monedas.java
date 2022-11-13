@@ -40,7 +40,7 @@ class Moneda100 extends Moneda{
         } catch (Exception e){
             System.out.println(e.getMessage());
         }
-            g.setColor(new Color(0, 0, 0));
+            g.setColor(new Color(255, 255, 255));
             g.drawString(String.valueOf(this.getSerie()), x+w/3, y+5*h/6);
     }
     
@@ -64,7 +64,7 @@ class Moneda500 extends Moneda{
         } catch (Exception e){
             System.out.println(e.getMessage());
         }
-            g.setColor(new Color(0, 0, 0));
+            g.setColor(new Color(255, 255, 255));
             g.drawString(String.valueOf(this.getSerie()), x+w/3, y+5*h/6);
     }
     

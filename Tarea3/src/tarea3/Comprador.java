@@ -81,10 +81,10 @@ public class Comprador{
         // Bebidas Compradas
         for(int j = 0; j < bebidasCompradas.size() ; j++){
             if(j<19){
-                bebidasCompradas.get(j).setXY(50+(j*30), 30);
+                bebidasCompradas.get(j).setXY(40+(j*30), 25);
                 bebidasCompradas.get(j).paint(g, panel);
             }else if(j<37){
-                bebidasCompradas.get(j).setXY(-520+(j*30), 90);
+                bebidasCompradas.get(j).setXY(-530+(j*30), 100);
                 bebidasCompradas.get(j).paint(g, panel);
             }           
         }
@@ -103,7 +103,7 @@ public class Comprador{
             System.out.println(e.getMessage());
         }
         // Bebida en mano
-        if(bebida != null){
+        if(bebida!=null && moneda==null){
             bebida.setXY(575, 486);
             bebida.paint(g, panel);
             bebidasCompradas.add(bebida);

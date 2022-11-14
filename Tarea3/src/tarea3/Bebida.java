@@ -89,7 +89,7 @@ class Sprite extends Bebida{
         } catch (Exception e){
             System.out.println(e.getMessage());
         }
-        g.setColor(Color.white);
+        g.setColor(Color.black);
         g.drawString(String.valueOf(this.getSerie()), getX()+5, getY()+60);
     }
     
@@ -139,7 +139,7 @@ class LimonSoda extends Bebida{
         } catch (Exception e){
             System.out.println(e.getMessage());
         }
-        g.setColor(Color.white);
+        g.setColor(Color.black);
         g.drawString(String.valueOf(this.getSerie()), getX()+5, getY()+60);
     }
     

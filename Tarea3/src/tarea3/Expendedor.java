@@ -181,7 +181,8 @@ class Expendedor extends Deposito{
          }
         // Ajustes a la fuente de las series
         Font currentFont = g.getFont();
-        Font newFont = currentFont.deriveFont(currentFont.getSize() * 1.2f);
+        //Font newFont = currentFont.deriveFont(currentFont.getSize() * 1.3f);
+        Font newFont = new Font("Calibri", Font.BOLD, 15);
         g.setFont(newFont);
         // Todas las Bebidas Disponibles
         for(int j = 0; j < DepositoCoca.size() ; j++){

@@ -18,27 +18,27 @@ public class Comprador{
     // METODOS
     public void DarMoneda(int opcion){
         switch(opcion){
-            case 1 -> {
+            case 1 :
                 if(moneda != null){
                     Monedero.add(moneda);
                 }
                 moneda = new Moneda100(Moneda.serieMonedas);
                 Moneda.serieMonedas = Moneda.serieMonedas+1;
-            }
-            case 2 -> {
+            break;
+            case 2 :
                 if(moneda != null){
                     Monedero.add(moneda);
                 }
                 moneda = new Moneda500(Moneda.serieMonedas);
                 Moneda.serieMonedas = Moneda.serieMonedas+1;
-            }
-            case 3 -> {
+            break;
+            case 3 :
                 if(moneda != null){
                     Monedero.add(moneda);
                 }
                 moneda = new Moneda1000(Moneda.serieMonedas);
                 Moneda.serieMonedas = Moneda.serieMonedas+1;
-            }
+            break;
         }
     }
     
@@ -68,6 +68,13 @@ public class Comprador{
     }
             
     public void paint(Graphics g, JPanel panel){
+        // Comprador 
+        try {
+            Image i1 = new ImageIcon(this.getClass().getResource("../Textures/compracompleto.png")).getImage();
+            g.drawImage(i1, 148, 170, 494, 473, panel);
+        } catch (Exception e){
+            System.out.println(e.getMessage());
+        }
         // "Mueble" para las Bebidas
         g.setColor(new Color(150,10,10)); 
         g.fillRect(18, 14, 632, 170);
@@ -84,11 +91,8 @@ public class Comprador{
         // "Mueble" seleccion de moneda
         g.setColor(new Color(150,10,10));
         g.fillRect(123, 582, 316, 142);
-        // Comprador y Monedas a Seleccionar
+        // Monedas a Seleccionar
         try {
-            Image i1 = new ImageIcon(this.getClass().getResource("../Textures/compracompleto.png")).getImage();
-            g.drawImage(i1, 148, 170, 494, 473, panel);
-            
             Image i2 = new ImageIcon(this.getClass().getResource("../Textures/Moneda100.png")).getImage();
             g.drawImage(i2, 138, 592, 79, 79, panel);
             Image i3 = new ImageIcon(this.getClass().getResource("../Textures/Moneda500.png")).getImage();

@@ -7,6 +7,8 @@ import java.awt.*;
 class Expendedor extends Deposito{
     // PROPIEDADES
     private final int precioBebidas;
+    private int x;
+    private int y;
     // METODOS
     public void ComprarBebida(int BebidaElegida, Moneda moneda) throws DepositoBebidaSacarException, NoHayBebidaException, PagoInsuficienteException, PagoIncorrectoException{
         
@@ -25,7 +27,7 @@ class Expendedor extends Deposito{
         int Aux = (moneda.getValor()-precioBebidas)/100;
         switch(BebidaElegida){
             
-            case 1 -> {
+            case 1 :
                 if(DepositoCoca.isEmpty()){
                     DepositoVuelto.add(moneda);
                     throw new NoHayBebidaException("No quedan CocaColas");
@@ -42,9 +44,9 @@ class Expendedor extends Deposito{
                     }
                     DepositoBebidaSacar = DepositoCoca.remove(0);
                 }
-            }
+            break;
                 
-            case 2 -> {
+            case 2:
                 if(DepositoSprite.isEmpty()){
                     DepositoVuelto.add(moneda);
                     throw new NoHayBebidaException("No quedan Sprites");
@@ -61,9 +63,9 @@ class Expendedor extends Deposito{
                     }
                     DepositoBebidaSacar = DepositoSprite.remove(0);
                 }
-            }
+            break;
                 
-            case 3 -> {
+            case 3 :
                 if(DepositoFanta.isEmpty()){
                     DepositoVuelto.add(moneda);
                     throw new NoHayBebidaException("No quedan Fantas");
@@ -80,9 +82,9 @@ class Expendedor extends Deposito{
                     }
                     DepositoBebidaSacar = DepositoFanta.remove(0);
                 }
-            }
+            break;
                 
-            case 4 -> {
+            case 4 :
                 if(DepositoLimonSoda.isEmpty()){
                     DepositoVuelto.add(moneda);
                     throw new NoHayBebidaException("No quedan LimonSoda");
@@ -99,7 +101,7 @@ class Expendedor extends Deposito{
                     }
                     DepositoBebidaSacar = DepositoLimonSoda.remove(0);
                 }
-            }
+            break;
         }
     }
     
@@ -143,65 +145,82 @@ class Expendedor extends Deposito{
             Bebida.serieBebidas = Bebida.serieBebidas+1;
         }
     }
+    public int getX(){
+        return x;
+    }
     
-    public void paint(Graphics g,int w, int h, JPanel panel){
-        int x = 19*w/36;
-        int y = h/24;
-        
-        Image i1 = new ImageIcon(this.getClass().getResource("../Textures/expendedor-cajon.png")).getImage();
-        g.drawImage(i1,19*w/36,y, 16*w/36,22*y, panel);
-        
-        g.setColor(new Color(255,10,10)); // boton refill
-        g.fillRect(33*w/36,h/12, 1*w/36,1*h/24);
-        
-        g.setColor(new Color(200,190,190)); //ventanilla
-        g.fillRect(x + w/36,y+h/36, 3*w/10,12*h/14);
-        
-        Image i2 = new ImageIcon(this.getClass().getResource("../Textures/BebidaSacar.png")).getImage();
-        g.drawImage(i2,221*w/256, 30*h/40, w/10, 5*h/28, panel);
-        
-        Image i3 = new ImageIcon(this.getClass().getResource("../Textures/Vuelto.png")).getImage();
-        g.drawImage(i3,221*w/256, 22*h/40, w/10, 5*h/28, panel);
-        
+    public int getY(){
+        return y;
+    }
+    
+    public void paint(Graphics g, JPanel panel){
+        try{ 
+            // Expendedor
+            Image i1 = new ImageIcon(this.getClass().getResource("../Textures/expendedor-cajon.png")).getImage();
+            g.drawImage(i1, x, y, 562, 616, panel);
+            // Boton Refill
+            g.setColor(new Color(255,10,10)); 
+            g.fillRect(x+492,y+29, 35,28);
+            // Deposito de Bebida Comprada
+            Image i2 = new ImageIcon(this.getClass().getResource("../Textures/BebidaSacar.png")).getImage();
+            g.drawImage(i2, x+424, y+483, 126, 122, panel);
+            // Deposito de Vuelto
+            Image i3 = new ImageIcon(this.getClass().getResource("../Textures/Vuelto.png")).getImage();
+            g.drawImage(i3, x+424, y+347, 126, 122, panel);
+            // Botones  para Comprar Bebida
+            Image i4 = new ImageIcon(this.getClass().getResource("../Textures/cocacola-logo.jpg")).getImage();
+            g.drawImage(i4, x+428, y+72, 120, 50, panel);
+            Image i5 = new ImageIcon(this.getClass().getResource("../Textures/sprite-logo.jpg")).getImage();
+            g.drawImage(i5, x+428, y+132, 120, 50, panel);
+            Image i6 = new ImageIcon(this.getClass().getResource("../Textures/fanta-logo.jpg")).getImage();
+            g.drawImage(i6, x+428, y+192, 120, 50, panel);
+            Image i7 = new ImageIcon(this.getClass().getResource("../Textures/limonsoda-logo.png")).getImage();
+            g.drawImage(i7, x+428, y+252, 120, 50, panel);
+         }catch(Exception e){
+            System.out.println("No cargo alguna de las imagenes");                
+         }
+        // Ajustes a la fuente de las series
         Font currentFont = g.getFont();
         Font newFont = currentFont.deriveFont(currentFont.getSize() * 1.2f);
         g.setFont(newFont);
-        
+        // Todas las Bebidas Disponibles
         for(int j = 0; j < DepositoCoca.size() ; j++){
-            DepositoCoca.get(j).setXY(w/2+w/16, (h/36)+600-(j+1)*100);
-            DepositoCoca.get(j).paint(g, w/(int)25.6, h/(int)9.6, panel);
+            DepositoCoca.get(j).setXY(x+95, y+591-((j+1)*100));
+            DepositoCoca.get(j).paint(g, panel);
         }
         for(int j = 0; j < DepositoSprite.size() ; j++){
-            DepositoSprite.get(j).setXY(w/2+2*(w/16), (h/36)+600-(j+1)*100);
-            DepositoSprite.get(j).paint(g, w/(int)25.6, h/(int)9.6, panel);
+            DepositoSprite.get(j).setXY(x+175, y+591-((j+1)*100));
+            DepositoSprite.get(j).paint(g, panel);
         }
         for(int j = 0; j < DepositoFanta.size() ; j++){
-            DepositoFanta.get(j).setXY(w/2+3*(w/16), (h/36)+600-(j+1)*100);
-            DepositoFanta.get(j).paint(g, w/(int)25.6, h/(int)9.6, panel);
+            DepositoFanta.get(j).setXY(x+255, y+591-((j+1)*100));
+            DepositoFanta.get(j).paint(g, panel);
         }
         for(int j = 0; j < DepositoLimonSoda.size() ; j++){
-            DepositoLimonSoda.get(j).setXY(w/2+4*(w/16), (h/36)+600-(j+1)*100);
-            DepositoLimonSoda.get(j).paint(g, w/(int)25.6, h/(int)9.6, panel);
+            DepositoLimonSoda.get(j).setXY(x+335, y+591-((j+1)*100));
+            DepositoLimonSoda.get(j).paint(g, panel);
         }
-        
-        if(DepositoBebidaSacar != null){
-            DepositoBebidaSacar.setXY(229*w/256, 31*h/40);
-            DepositoBebidaSacar.paint(g, (int)(w/25.6), (int)(h/9.6), panel);
+        // Bebida Comprada
+        if(DepositoBebidaSacar!=null){
+            DepositoBebidaSacar.setXY(x+464, y+500);
+            DepositoBebidaSacar.paint(g, panel);
         }
-        
+        // Vuelto
         for(int j = 0; j < DepositoVuelto.size() ; j++){
             if(j<4){
-                DepositoVuelto.get(j).paint(g, 221*w/256+(j*25), 26*h/40, (int)(w/25.6), (int)(h/14.4), panel);
+                DepositoVuelto.get(j).paint(g, x+425+(j*25), y+416, 49, 49, panel);
             }else if(j<8){
-                DepositoVuelto.get(j).paint(g, 221*w/256+((j-4)*25), 24*h/40, (int)(w/25.6), (int)(h/14.4), panel);
+                DepositoVuelto.get(j).paint(g, x+425+((j-4)*25), y+382, 49, 49, panel);
             }else if(j<12){
-                DepositoVuelto.get(j).paint(g, 221*w/256+((j-8)*25), 22*h/40, (int)(w/25.6), (int)(h/14.4), panel);
+                DepositoVuelto.get(j).paint(g, x+425+((j-8)*25), y+348, 49, 49, panel);
             }
         }
     }
     
     public Expendedor(int numBebidas, int precioBebidas){
         super(numBebidas);
+        x = 667;
+        y = 28;
         this.precioBebidas = precioBebidas;
         DepositoBebidaSacar = null;
     }

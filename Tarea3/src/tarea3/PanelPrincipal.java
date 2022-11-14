@@ -2,11 +2,8 @@ package tarea3;
 
 import java.awt.event.MouseListener;
 import java.awt.event.MouseEvent;
-import javax.swing.ImageIcon;
-import java.awt.Dimension;
 import javax.swing.JPanel;
 import java.awt.Graphics;
-import java.awt.Image;
 import java.awt.Color;
 
 
@@ -18,24 +15,9 @@ class PanelPrincipal extends JPanel{
     @Override
     public void paint(Graphics g){
         super.paint(g);
-        Dimension size = this.getSize();
-        int w = size.width;
-        int h = size.height;
         this.setBackground(Color.gray);
-        exp.paint(g,w,h,this);
-        com.paint(g,w,h,this);
-        try{ 
-            Image i1 = new ImageIcon(this.getClass().getResource("../Textures/cocacola-logo.jpg")).getImage();
-            g.drawImage(i1,1095, 100, 120, 50, this);
-            Image i2 = new ImageIcon(this.getClass().getResource("../Textures/sprite-logo.jpg")).getImage();
-            g.drawImage(i2,1095, 160, 120, 50, this);
-            Image i3 = new ImageIcon(this.getClass().getResource("../Textures/fanta-logo.jpg")).getImage();
-            g.drawImage(i3,1095, 220, 120, 50, this);
-            Image i4 = new ImageIcon(this.getClass().getResource("../Textures/limonsoda-logo.png")).getImage();
-            g.drawImage(i4,1095, 280, 120, 50, this);
-         }catch(Exception e){
-            System.out.println("No cargo alguna de las imagenes");                
-         }
+        exp.paint(g, this);
+        com.paint(g, this);
     }
            
     private class EscuchaRaton implements MouseListener{

@@ -165,11 +165,11 @@ class Expendedor extends Deposito{
             Image i3 = new ImageIcon(this.getClass().getResource("../Textures/Vuelto.png")).getImage();
             g.drawImage(i3, x+424, y+347, 126, 122, panel);
             // Botones  para Comprar Bebida
-            Image i4 = new ImageIcon(this.getClass().getResource("../Textures/cocacola-logo.jpg")).getImage();
+            Image i4 = new ImageIcon(this.getClass().getResource("../Textures/cocacola-logo.png")).getImage();
             g.drawImage(i4, x+428, y+72, 120, 50, panel);
-            Image i5 = new ImageIcon(this.getClass().getResource("../Textures/sprite-logo.jpg")).getImage();
+            Image i5 = new ImageIcon(this.getClass().getResource("../Textures/sprite-logo.png")).getImage();
             g.drawImage(i5, x+428, y+132, 120, 50, panel);
-            Image i6 = new ImageIcon(this.getClass().getResource("../Textures/fanta-logo.jpg")).getImage();
+            Image i6 = new ImageIcon(this.getClass().getResource("../Textures/fanta-logo.png")).getImage();
             g.drawImage(i6, x+428, y+192, 120, 50, panel);
             Image i7 = new ImageIcon(this.getClass().getResource("../Textures/limonsoda-logo.png")).getImage();
             g.drawImage(i7, x+428, y+252, 120, 50, panel);

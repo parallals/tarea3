@@ -2,11 +2,8 @@ package tarea3;
 
 import java.awt.event.MouseListener;
 import java.awt.event.MouseEvent;
-import javax.swing.ImageIcon;
-import java.awt.Dimension;
 import javax.swing.JPanel;
 import java.awt.Graphics;
-import java.awt.Image;
 import java.awt.Color;
 
 
@@ -18,24 +15,9 @@ class PanelPrincipal extends JPanel{
     @Override
     public void paint(Graphics g){
         super.paint(g);
-        Dimension size = this.getSize();
-        int w = size.width;
-        int h = size.height;
         this.setBackground(Color.gray);
-        exp.paint(g,w,h,this);
-        com.paint(g,w,h,this);
-        try{ 
-            Image i1 = new ImageIcon(this.getClass().getResource("../Textures/cocacola-logo.jpg")).getImage();
-            g.drawImage(i1,1095, 100, 120, 50, this);
-            Image i2 = new ImageIcon(this.getClass().getResource("../Textures/sprite-logo.jpg")).getImage();
-            g.drawImage(i2,1095, 160, 120, 50, this);
-            Image i3 = new ImageIcon(this.getClass().getResource("../Textures/fanta-logo.jpg")).getImage();
-            g.drawImage(i3,1095, 220, 120, 50, this);
-            Image i4 = new ImageIcon(this.getClass().getResource("../Textures/limonsoda-logo.png")).getImage();
-            g.drawImage(i4,1095, 280, 120, 50, this);
-         }catch(Exception e){
-            System.out.println("No cargo alguna de las imagenes");                
-         }
+        exp.paint(g, this);
+        com.paint(g, this);
     }
            
     private class EscuchaRaton implements MouseListener{
@@ -43,22 +25,22 @@ class PanelPrincipal extends JPanel{
         @Override
         public void mousePressed(MouseEvent me){
             // Boton para darle una Moneda de 100 al Comprador.
-            if(me.getX()>=140 && me.getY()<=600+80 && me.getX()<=140+80 && me.getY()>=600){
+            if(me.getX()>=138 && me.getY()<=592+79 && me.getX()<=138+79 && me.getY()>=592){
                 com.DarMoneda(1);      
                 PanelPrincipal.this.repaint();
             }
             // Boton para darle una Moneda de 500 al Comprador.
-            if(me.getX()>=240 && me.getY()<=600+80 && me.getX()<=240+80 && me.getY()>=600){
+            if(me.getX()>=237 && me.getY()<=592+79 && me.getX()<=237+79 && me.getY()>=592){
                 com.DarMoneda(2);
                 PanelPrincipal.this.repaint();            
             } 
             // Boton para darle una Moneda de 1000 al Comprador.
-            if(me.getX()>=340 && me.getY()<=600+80 && me.getX()<=340+80 && me.getY()>=600){
+            if(me.getX()>=336 && me.getY()<=592+79 && me.getX()<=336+79 && me.getY()>=592){
                 com.DarMoneda(3);     
                 PanelPrincipal.this.repaint();           
             }
             // Boton para comprar CocaCola.
-            if(me.getX() >= 1095 && me.getY() <= 100 +50 && me.getX() <= 1095+120 && me.getY() >= 100){
+            if(me.getX() >= exp.getX()+428 && me.getY() <= exp.getY()+72+50 && me.getX() <= exp.getX()+428+120 && me.getY() >= exp.getY()+72){
                 try{
                     com.PagarBebida(1);
                 } catch (NoHayBebidaException | PagoInsuficienteException | PagoIncorrectoException  e){
@@ -67,7 +49,7 @@ class PanelPrincipal extends JPanel{
                 PanelPrincipal.this.repaint();
             } 
             // Boton para comprar Sprite.
-            if(me.getX() >= 1095 && me.getY() <= 160 +50 && me.getX() <= 1095+120 && me.getY() >= 160){
+            if(me.getX() >= exp.getX()+428 && me.getY() <= exp.getY()+132+50 && me.getX() <= exp.getX()+428+120 && me.getY() >= exp.getY()+132){
                 try{
                     com.PagarBebida(2);
                 } catch (NoHayBebidaException | PagoInsuficienteException | PagoIncorrectoException e){
@@ -76,7 +58,7 @@ class PanelPrincipal extends JPanel{
                 PanelPrincipal.this.repaint();
             } 
             // Boton para comprar Fanta.
-            if(me.getX() >= 1095 && me.getY() <= 220 +50 && me.getX() <= 1095+120 && me.getY() >= 220){
+            if(me.getX() >= exp.getX()+428 && me.getY() <= exp.getY()+192+50 && me.getX() <= exp.getX()+428+120 && me.getY() >= exp.getY()+192){
                 try{
                     com.PagarBebida(3);
                 } catch (NoHayBebidaException | PagoInsuficienteException | PagoIncorrectoException e){
@@ -85,7 +67,7 @@ class PanelPrincipal extends JPanel{
                 PanelPrincipal.this.repaint();
             } 
             // Boton para comprar LimonSoda.
-            if(me.getX() >= 1095 && me.getY() <= 280 +50 && me.getX() <= 1095+120 && me.getY() >= 280){
+            if(me.getX() >= exp.getX()+428 && me.getY() <= exp.getY()+252+50 && me.getX() <= exp.getX()+428+120 && me.getY() >= exp.getY()+252){
                 try{
                     com.PagarBebida(4);
                 } catch (NoHayBebidaException | PagoInsuficienteException | PagoIncorrectoException e){
@@ -94,17 +76,17 @@ class PanelPrincipal extends JPanel{
                 PanelPrincipal.this.repaint();
             }
             // Para retirar una bebida comprada.
-            if(me.getX() >= 1131 && me.getY() <= 528 +50 && me.getX() <= 1131+75 && me.getY() >= 528){
+            if(me.getX() >= exp.getX()+424 && me.getY() <= exp.getY()+483+122 && me.getX() <= exp.getX()+424+126 && me.getY() >= exp.getY()+483){
                 com.RetirarBebida();
                 PanelPrincipal.this.repaint();
             }
             // Boton para retirar vuelto.
-            if(me.getX()>=1091 && me.getY()<=375+122 && me.getX()<=1091+126 && me.getY()>=375){
+            if(me.getX()>=exp.getX()+424 && me.getY()<=exp.getY()+347+122 && me.getX()<=exp.getX()+424+126 && me.getY()>=exp.getY()+347){
                 com.RetirarVuelto();     
                 PanelPrincipal.this.repaint();           
             }
             // Boton Refill
-            if(me.getX()>=1158 && me.getY()<=57+28 && me.getX()<=1158+35 && me.getY()>=57){
+            if(me.getX()>=exp.getX()+492 && me.getY()<=exp.getY()+29+28 && me.getX()<=exp.getX()+492+35 && me.getY()>=exp.getY()+29){
                 exp.Refill();
                 PanelPrincipal.this.repaint();                
             } 

@@ -16,7 +16,7 @@ public abstract class Bebida{
     // METODOS
     public abstract String beber();
     
-    public abstract void paint(Graphics g, int w, int h, JPanel panel);
+    public abstract void paint(Graphics g, JPanel panel);
     
     public int getX(){
         return x;
@@ -57,15 +57,15 @@ class CocaCola extends Bebida{
     }
     
     @Override
-    public void paint(Graphics g, int w, int h, JPanel panel){
+    public void paint(Graphics g, JPanel panel){
         try {
             Image i = new ImageIcon(this.getClass().getResource("../Textures/cocacola-lata.png")).getImage();
-            g.drawImage(i, getX(), getY(), w, h, panel);
+            g.drawImage(i, getX(), getY(), 49, 71, panel);
         } catch (Exception e){
             System.out.println(e.getMessage());
         }
         g.setColor(Color.black);
-        g.drawString(String.valueOf(this.getSerie()), getX()+(w/20), getY()+(9*h/10));
+        g.drawString(String.valueOf(this.getSerie()), getX()+5, getY()+60);
     }
     
     public CocaCola(int numSerie){
@@ -82,15 +82,15 @@ class Sprite extends Bebida{
     }
     
     @Override
-    public void paint(Graphics g, int w, int h, JPanel panel){
+    public void paint(Graphics g, JPanel panel){
         try {
             Image i = new ImageIcon(this.getClass().getResource("../Textures/sprite-lata.png")).getImage();
-            g.drawImage(i, getX(), getY(), w, h, panel); 
+            g.drawImage(i, getX(), getY(), 49, 71,panel); 
         } catch (Exception e){
             System.out.println(e.getMessage());
         }
-        g.setColor(Color.white);
-        g.drawString(String.valueOf(this.getSerie()), getX()+(w/20), getY()+(9*h/10));
+        g.setColor(Color.black);
+        g.drawString(String.valueOf(this.getSerie()), getX()+5, getY()+60);
     }
     
     public Sprite(int numSerie){
@@ -107,15 +107,15 @@ class Fanta extends Bebida{
     }
     
     @Override
-    public void paint(Graphics g, int w, int h, JPanel panel){
+    public void paint(Graphics g, JPanel panel){
         try {
             Image i = new ImageIcon(this.getClass().getResource("../Textures/fanta-lata.png")).getImage();
-            g.drawImage(i, getX(), getY(), w, h, panel); 
+            g.drawImage(i, getX(), getY(), 49, 71, panel); 
         } catch (Exception e){
             System.out.println(e.getMessage());
         }
         g.setColor(Color.black);
-        g.drawString(String.valueOf(this.getSerie()), getX()+(w/20), getY()+(9*h/10));
+        g.drawString(String.valueOf(this.getSerie()), getX()+5, getY()+60);
     }
     
     public Fanta(int numSerie){
@@ -132,15 +132,15 @@ class LimonSoda extends Bebida{
     }
     
     @Override
-    public void paint(Graphics g, int w, int h, JPanel panel){
+    public void paint(Graphics g, JPanel panel){
         try {
             Image i = new ImageIcon(this.getClass().getResource("../Textures/limonsoda-lata.png")).getImage();
-            g.drawImage(i, getX(), getY(), w, h, panel); 
+            g.drawImage(i, getX(), getY(), 49, 71, panel); 
         } catch (Exception e){
             System.out.println(e.getMessage());
         }
-        g.setColor(Color.white);
-        g.drawString(String.valueOf(this.getSerie()), getX()+(w/20), getY()+(9*h/10));
+        g.setColor(Color.black);
+        g.drawString(String.valueOf(this.getSerie()), getX()+5, getY()+60);
     }
     
     public LimonSoda(int numSerie){

@@ -18,27 +18,27 @@ public class Comprador{
     // METODOS
     public void DarMoneda(int opcion){
         switch(opcion){
-            case 1 :
+            case 1 -> {
                 if(moneda != null){
                     Monedero.add(moneda);
                 }
                 moneda = new Moneda100(Moneda.serieMonedas);
                 Moneda.serieMonedas = Moneda.serieMonedas+1;
-            break;
-            case 2 :
+            }
+            case 2 -> {
                 if(moneda != null){
                     Monedero.add(moneda);
                 }
                 moneda = new Moneda500(Moneda.serieMonedas);
                 Moneda.serieMonedas = Moneda.serieMonedas+1;
-            break;
-            case 3 :
+            }
+            case 3 -> {
                 if(moneda != null){
                     Monedero.add(moneda);
                 }
                 moneda = new Moneda1000(Moneda.serieMonedas);
                 Moneda.serieMonedas = Moneda.serieMonedas+1;
-           break;
+            }
         }
     }
     

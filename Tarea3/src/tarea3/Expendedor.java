@@ -26,79 +26,58 @@ class Expendedor extends Deposito{
         
         int Aux = (moneda.getValor()-precioBebidas)/100;
         switch(BebidaElegida){
-            
-            case 1 :
+            case 1 -> {
                 if(DepositoCoca.isEmpty()){
                     DepositoVuelto.add(moneda);
                     throw new NoHayBebidaException("No quedan CocaColas");
                 }else{
                     DepositoPagado.add(moneda);
-                    if(Aux>4){
-                        DepositoVuelto.add(new Moneda500(Moneda.serieMonedas));
-                        Moneda.serieMonedas = Moneda.serieMonedas+1;
-                        Aux = Aux-5;
-                    }
                     for(int i=0 ;  i<Aux ; i++){
                         DepositoVuelto.add(new Moneda100(Moneda.serieMonedas));
                         Moneda.serieMonedas = Moneda.serieMonedas+1;
                     }
                     DepositoBebidaSacar = DepositoCoca.remove(0);
                 }
-            break;
-            case 2 :
+            }
+            case 2 -> {
                 if(DepositoSprite.isEmpty()){
                     DepositoVuelto.add(moneda);
                     throw new NoHayBebidaException("No quedan Sprites");
                 }else{
                     DepositoPagado.add(moneda);
-                    if(Aux>4){
-                        DepositoVuelto.add(new Moneda500(Moneda.serieMonedas));
-                        Moneda.serieMonedas = Moneda.serieMonedas+1;
-                        Aux = Aux-5;
-                    }
                     for(int i=0 ;  i<Aux  ; i++){
                         DepositoVuelto.add(new Moneda100(Moneda.serieMonedas));
                         Moneda.serieMonedas = Moneda.serieMonedas+1;
                     }
                     DepositoBebidaSacar = DepositoSprite.remove(0);
                 }
-            break;
-            case 3 :
+            }
+            case 3 -> {
                 if(DepositoFanta.isEmpty()){
                     DepositoVuelto.add(moneda);
                     throw new NoHayBebidaException("No quedan Fantas");
                 }else{
                     DepositoPagado.add(moneda);
-                    if(Aux>4){
-                        DepositoVuelto.add(new Moneda500(Moneda.serieMonedas));
-                        Moneda.serieMonedas = Moneda.serieMonedas+1;
-                        Aux = Aux-5;
-                    }
                     for(int i=0 ;  i<Aux  ; i++){
                         DepositoVuelto.add(new Moneda100(Moneda.serieMonedas));
                         Moneda.serieMonedas = Moneda.serieMonedas+1;
                     }
                     DepositoBebidaSacar = DepositoFanta.remove(0);
                 }
-            break;
-            case 4:
+            }
+            case 4 -> {
                 if(DepositoLimonSoda.isEmpty()){
                     DepositoVuelto.add(moneda);
                     throw new NoHayBebidaException("No quedan LimonSoda");
                 }else{
                     DepositoPagado.add(moneda);
-                    if(Aux>4){
-                        DepositoVuelto.add(new Moneda500(Moneda.serieMonedas));
-                        Moneda.serieMonedas = Moneda.serieMonedas+1;
-                        Aux = Aux-5;
-                    }
                     for(int i=0 ;  i<Aux  ; i++){
                         DepositoVuelto.add(new Moneda100(Moneda.serieMonedas));
                         Moneda.serieMonedas = Moneda.serieMonedas+1;
                     }
                     DepositoBebidaSacar = DepositoLimonSoda.remove(0);
                 }
-            break;
+            }
         }
     }
     

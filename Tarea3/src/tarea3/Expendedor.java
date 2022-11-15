@@ -27,7 +27,7 @@ class Expendedor extends Deposito{
         int Aux = (moneda.getValor()-precioBebidas)/100;
         switch(BebidaElegida){
             
-            case 1 -> {
+            case 1 :
                 if(DepositoCoca.isEmpty()){
                     DepositoVuelto.add(moneda);
                     throw new NoHayBebidaException("No quedan CocaColas");
@@ -44,8 +44,8 @@ class Expendedor extends Deposito{
                     }
                     DepositoBebidaSacar = DepositoCoca.remove(0);
                 }
-            }
-            case 2 -> {
+            break;
+            case 2 :
                 if(DepositoSprite.isEmpty()){
                     DepositoVuelto.add(moneda);
                     throw new NoHayBebidaException("No quedan Sprites");
@@ -62,8 +62,8 @@ class Expendedor extends Deposito{
                     }
                     DepositoBebidaSacar = DepositoSprite.remove(0);
                 }
-            }
-            case 3 -> {
+            break;
+            case 3 :
                 if(DepositoFanta.isEmpty()){
                     DepositoVuelto.add(moneda);
                     throw new NoHayBebidaException("No quedan Fantas");
@@ -80,8 +80,8 @@ class Expendedor extends Deposito{
                     }
                     DepositoBebidaSacar = DepositoFanta.remove(0);
                 }
-            }
-            case 4 -> {
+            break;
+            case 4:
                 if(DepositoLimonSoda.isEmpty()){
                     DepositoVuelto.add(moneda);
                     throw new NoHayBebidaException("No quedan LimonSoda");
@@ -98,7 +98,7 @@ class Expendedor extends Deposito{
                     }
                     DepositoBebidaSacar = DepositoLimonSoda.remove(0);
                 }
-            }
+            break;
         }
     }
     

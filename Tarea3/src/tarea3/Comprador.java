@@ -18,27 +18,27 @@ public class Comprador{
     // METODOS
     public void DarMoneda(int opcion){
         switch(opcion){
-            case 1 -> {
+            case 1 :
                 if(moneda != null){
                     Monedero.add(moneda);
                 }
                 moneda = new Moneda100(Moneda.serieMonedas);
                 Moneda.serieMonedas = Moneda.serieMonedas+1;
-            }
-            case 2 -> {
+            break;
+            case 2 :
                 if(moneda != null){
                     Monedero.add(moneda);
                 }
                 moneda = new Moneda500(Moneda.serieMonedas);
                 Moneda.serieMonedas = Moneda.serieMonedas+1;
-            }
-            case 3 -> {
+            break;
+            case 3 :
                 if(moneda != null){
                     Monedero.add(moneda);
                 }
                 moneda = new Moneda1000(Moneda.serieMonedas);
                 Moneda.serieMonedas = Moneda.serieMonedas+1;
-            }
+           break;
         }
     }
     
@@ -103,7 +103,7 @@ public class Comprador{
             System.out.println(e.getMessage());
         }
         // Bebida en mano
-        if(bebida!=null && moneda==null){
+        if(bebida!=null){
             bebida.setXY(575, 486);
             bebida.paint(g, panel);
             bebidasCompradas.add(bebida);

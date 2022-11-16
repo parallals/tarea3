@@ -155,9 +155,6 @@ class Expendedor extends Deposito{
          }catch(Exception e){
             System.out.println("No cargo alguna de las imagenes");                
          }
-        // Ajustes a la fuente de las series
-        Font currentFont = g.getFont();
-        //Font newFont = currentFont.deriveFont(currentFont.getSize() * 1.3f);
         Font newFont = new Font("Calibri", Font.BOLD, 15);
         g.setFont(newFont);
         // Todas las Bebidas Disponibles

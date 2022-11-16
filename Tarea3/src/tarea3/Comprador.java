@@ -5,7 +5,6 @@ import javax.swing.JPanel;
 import java.awt.Graphics;
 import java.util.ArrayList;
 import java.awt.Image;
-import java.awt.Color;
 
 
 public class Comprador{
@@ -68,29 +67,29 @@ public class Comprador{
     }
             
     public void paint(Graphics g, JPanel panel){
-        // Comprador 
+        // Comprador, "Mueble" para las Bebidas, Seleccion de Moneda y Monedero
         try {
             Image i1 = new ImageIcon(this.getClass().getResource("../Textures/compracompleto.png")).getImage();
-            g.drawImage(i1, 148, 170, 494, 473, panel);
+            g.drawImage(i1, 148, 190, 494, 473, panel);
+            Image i5 = new ImageIcon(this.getClass().getResource("../Textures/BebidasCompradas.png")).getImage();
+            g.drawImage(i5, 18, 14, 632, 170, panel);
+            Image i6 = new ImageIcon(this.getClass().getResource("../Textures/DarMoneda.png")).getImage();
+            g.drawImage(i6, 117, 570, 316, 142, panel);
+            Image i7 = new ImageIcon(this.getClass().getResource("../Textures/Monedero.png")).getImage();
+            g.drawImage(i7, 16, 274, 105, 240, panel);
         } catch (Exception e){
             System.out.println(e.getMessage());
         }
-        // "Mueble" para las Bebidas
-        g.setColor(new Color(150,10,10)); 
-        g.fillRect(18, 14, 632, 170);
         // Bebidas Compradas
         for(int j = 0; j < bebidasCompradas.size() ; j++){
             if(j<19){
                 bebidasCompradas.get(j).setXY(40+(j*30), 25);
                 bebidasCompradas.get(j).paint(g, panel);
-            }else if(j<37){
+            }else if(j<38){
                 bebidasCompradas.get(j).setXY(-530+(j*30), 100);
                 bebidasCompradas.get(j).paint(g, panel);
             }           
         }
-        // "Mueble" seleccion de moneda
-        g.setColor(new Color(150,10,10));
-        g.fillRect(123, 582, 316, 142);
         // Monedas a Seleccionar
         try {
             Image i2 = new ImageIcon(this.getClass().getResource("../Textures/Moneda100.png")).getImage();
@@ -104,18 +103,15 @@ public class Comprador{
         }
         // Bebida en mano
         if(bebida!=null){
-            bebida.setXY(575, 486);
+            bebida.setXY(560, 486);
             bebida.paint(g, panel);
             bebidasCompradas.add(bebida);
             bebida = null;
         }
         // Moneda Seleccionada
         if(moneda!=null && bebida == null){
-            moneda.paint(g, 564, 473, 79, 79, panel);
+            moneda.paint(g, 550, 473, 79, 79, panel);
         }
-        // Monedero
-        g.setColor(new Color(150,10,10));
-        g.fillRect(18, 284, 105, 227);
         // Monedas vuelto
         for(int j = 0; j < Monedero.size() ; j++){
             if(j<7){

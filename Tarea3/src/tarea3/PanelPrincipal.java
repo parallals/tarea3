@@ -5,6 +5,8 @@ import java.awt.event.MouseEvent;
 import javax.swing.JPanel;
 import java.awt.Graphics;
 import java.awt.Color;
+import java.awt.Image;
+import javax.swing.ImageIcon;
 
 
 class PanelPrincipal extends JPanel{
@@ -16,6 +18,8 @@ class PanelPrincipal extends JPanel{
     public void paint(Graphics g){
         super.paint(g);
         this.setBackground(Color.gray);
+        Image i = new ImageIcon(this.getClass().getResource("../Textures/Fondo.png")).getImage();
+        g.drawImage(i, 0, 0, 1280, 720, this);
         exp.paint(g, this);
         com.paint(g, this);
     }

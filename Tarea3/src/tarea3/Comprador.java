@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.awt.Image;
 
 
-public class Comprador{
+class Comprador{
     // PROPIEDADES
     private final ArrayList<Bebida> bebidasCompradas;
     private final ArrayList<Moneda> Monedero;

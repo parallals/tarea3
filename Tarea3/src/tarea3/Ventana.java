@@ -9,7 +9,7 @@ public class Ventana extends JFrame {
     public Ventana(){
         super();
         this.setLayout(new BorderLayout());
-        this.setTitle("Expendedor");
+        this.setTitle("Tarea 3: Expendedor");
         setResizable(false);
         this.setVisible(true); 
         this.add(new PanelPrincipal());

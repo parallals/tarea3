@@ -4,9 +4,10 @@ import javax.swing.*;
 import java.awt.*;
 
 
-class Expendedor extends Deposito{
+class Expendedor{
     // PROPIEDADES
     private final int precioBebidas;
+    private final Depositos depositos;
     private int x;
     private int y;
     // METODOS
@@ -16,108 +17,108 @@ class Expendedor extends Deposito{
             throw new PagoIncorrectoException("Inserte moneda valida");
             
         }else if(moneda.getValor() < precioBebidas){
-            DepositoVuelto.add(moneda);
+            depositos.DepositoVuelto.add(moneda);
             throw new PagoInsuficienteException("Le faltan monedas");
             
-        }else if(DepositoBebidaSacar != null){
-            DepositoVuelto.add(moneda);
+        }else if(depositos.DepositoBebidaSacar != null){
+            depositos.DepositoVuelto.add(moneda);
             throw new DepositoBebidaSacarException("Retire su bebida");
         }
         
         int Aux = (moneda.getValor()-precioBebidas)/100;
         switch(BebidaElegida){
             case 1 -> {
-                if(DepositoCoca.isEmpty()){
-                    DepositoVuelto.add(moneda);
+                if(depositos.DepositoCoca.isEmpty()){
+                    depositos.DepositoVuelto.add(moneda);
                     throw new NoHayBebidaException("No quedan CocaColas");
                 }else{
-                    DepositoPagado.add(moneda);
+                    depositos.DepositoPagado.add(moneda);
                     for(int i=0 ;  i<Aux ; i++){
-                        DepositoVuelto.add(new Moneda100(Moneda.serieMonedas));
+                        depositos.DepositoVuelto.add(new Moneda100(Moneda.serieMonedas));
                         Moneda.serieMonedas = Moneda.serieMonedas+1;
                     }
-                    DepositoBebidaSacar = DepositoCoca.remove(0);
+                    depositos.DepositoBebidaSacar = depositos.DepositoCoca.remove(0);
                 }
             }
             case 2 -> {
-                if(DepositoSprite.isEmpty()){
-                    DepositoVuelto.add(moneda);
+                if(depositos.DepositoSprite.isEmpty()){
+                    depositos.DepositoVuelto.add(moneda);
                     throw new NoHayBebidaException("No quedan Sprites");
                 }else{
-                    DepositoPagado.add(moneda);
+                    depositos.DepositoPagado.add(moneda);
                     for(int i=0 ;  i<Aux  ; i++){
-                        DepositoVuelto.add(new Moneda100(Moneda.serieMonedas));
+                        depositos.DepositoVuelto.add(new Moneda100(Moneda.serieMonedas));
                         Moneda.serieMonedas = Moneda.serieMonedas+1;
                     }
-                    DepositoBebidaSacar = DepositoSprite.remove(0);
+                    depositos.DepositoBebidaSacar = depositos.DepositoSprite.remove(0);
                 }
             }
             case 3 -> {
-                if(DepositoFanta.isEmpty()){
-                    DepositoVuelto.add(moneda);
+                if(depositos.DepositoFanta.isEmpty()){
+                    depositos.DepositoVuelto.add(moneda);
                     throw new NoHayBebidaException("No quedan Fantas");
                 }else{
-                    DepositoPagado.add(moneda);
+                    depositos.DepositoPagado.add(moneda);
                     for(int i=0 ;  i<Aux  ; i++){
-                        DepositoVuelto.add(new Moneda100(Moneda.serieMonedas));
+                        depositos.DepositoVuelto.add(new Moneda100(Moneda.serieMonedas));
                         Moneda.serieMonedas = Moneda.serieMonedas+1;
                     }
-                    DepositoBebidaSacar = DepositoFanta.remove(0);
+                    depositos.DepositoBebidaSacar = depositos.DepositoFanta.remove(0);
                 }
             }
             case 4 -> {
-                if(DepositoLimonSoda.isEmpty()){
-                    DepositoVuelto.add(moneda);
+                if(depositos.DepositoLimonSoda.isEmpty()){
+                    depositos.DepositoVuelto.add(moneda);
                     throw new NoHayBebidaException("No quedan LimonSoda");
                 }else{
-                    DepositoPagado.add(moneda);
+                    depositos.DepositoPagado.add(moneda);
                     for(int i=0 ;  i<Aux  ; i++){
-                        DepositoVuelto.add(new Moneda100(Moneda.serieMonedas));
+                        depositos.DepositoVuelto.add(new Moneda100(Moneda.serieMonedas));
                         Moneda.serieMonedas = Moneda.serieMonedas+1;
                     }
-                    DepositoBebidaSacar = DepositoLimonSoda.remove(0);
+                    depositos.DepositoBebidaSacar = depositos.DepositoLimonSoda.remove(0);
                 }
             }
         }
     }
     
     public Moneda getVuelto() throws DepositoVueltoVacioException{
-        if(DepositoVuelto.isEmpty()){
+        if(depositos.DepositoVuelto.isEmpty()){
             throw new DepositoVueltoVacioException("No tiene vuelto que retirar");
          }else{
-            return DepositoVuelto.remove(0);
+            return depositos.DepositoVuelto.remove(0);
          }
     }
     
     public Bebida getBebida(){
-        if(DepositoBebidaSacar == null){
+        if(depositos.DepositoBebidaSacar == null){
             throw new DepositoBebidaVacioException("No tiene bebida que retirar");
         }else{
-            Bebida aux = DepositoBebidaSacar;
-            DepositoBebidaSacar = null;
+            Bebida aux = depositos.DepositoBebidaSacar;
+            depositos.DepositoBebidaSacar = null;
             return aux;
         }
     }
     
     public void Refill(){
-        for(int i = DepositoCoca.size(); i< 5 ; i++){
+        for(int i = depositos.DepositoCoca.size(); i< 5 ; i++){
             CocaCola aux = new CocaCola(Bebida.serieBebidas);
-            DepositoCoca.add(aux);
+            depositos.DepositoCoca.add(aux);
             Bebida.serieBebidas = Bebida.serieBebidas+1;
         }
-        for(int i = DepositoSprite.size(); i< 5; i++){
+        for(int i = depositos.DepositoSprite.size(); i< 5; i++){
             Sprite aux = new Sprite(Bebida.serieBebidas);
-            DepositoSprite.add(aux);
+            depositos.DepositoSprite.add(aux);
             Bebida.serieBebidas = Bebida.serieBebidas+1;
         }
-        for(int i = DepositoFanta.size(); i< 5; i++){
+        for(int i = depositos.DepositoFanta.size(); i< 5; i++){
             Fanta aux = new Fanta(Bebida.serieBebidas);
-            DepositoFanta.add(aux);
+            depositos.DepositoFanta.add(aux);
             Bebida.serieBebidas = Bebida.serieBebidas+1;
         }
-        for(int i = DepositoLimonSoda.size(); i< 5 ; i++){
+        for(int i = depositos.DepositoLimonSoda.size(); i< 5 ; i++){
             LimonSoda aux = new LimonSoda(Bebida.serieBebidas);
-            DepositoLimonSoda.add(aux);
+            depositos.DepositoLimonSoda.add(aux);
             Bebida.serieBebidas = Bebida.serieBebidas+1;
         }
     }
@@ -158,44 +159,44 @@ class Expendedor extends Deposito{
         Font newFont = new Font("Calibri", Font.BOLD, 15);
         g.setFont(newFont);
         // Todas las Bebidas Disponibles
-        for(int j = 0; j < DepositoCoca.size() ; j++){
-            DepositoCoca.get(j).setXY(x+95, y+591-((j+1)*100));
-            DepositoCoca.get(j).paint(g, panel);
+        for(int j = 0; j < depositos.DepositoCoca.size() ; j++){
+            depositos.DepositoCoca.get(j).setXY(x+95, y+591-((j+1)*100));
+            depositos.DepositoCoca.get(j).paint(g, panel);
         }
-        for(int j = 0; j < DepositoSprite.size() ; j++){
-            DepositoSprite.get(j).setXY(x+175, y+591-((j+1)*100));
-            DepositoSprite.get(j).paint(g, panel);
+        for(int j = 0; j < depositos.DepositoSprite.size() ; j++){
+            depositos.DepositoSprite.get(j).setXY(x+175, y+591-((j+1)*100));
+            depositos.DepositoSprite.get(j).paint(g, panel);
         }
-        for(int j = 0; j < DepositoFanta.size() ; j++){
-            DepositoFanta.get(j).setXY(x+255, y+591-((j+1)*100));
-            DepositoFanta.get(j).paint(g, panel);
+        for(int j = 0; j < depositos.DepositoFanta.size() ; j++){
+            depositos.DepositoFanta.get(j).setXY(x+255, y+591-((j+1)*100));
+            depositos.DepositoFanta.get(j).paint(g, panel);
         }
-        for(int j = 0; j < DepositoLimonSoda.size() ; j++){
-            DepositoLimonSoda.get(j).setXY(x+335, y+591-((j+1)*100));
-            DepositoLimonSoda.get(j).paint(g, panel);
+        for(int j = 0; j < depositos.DepositoLimonSoda.size() ; j++){
+            depositos.DepositoLimonSoda.get(j).setXY(x+335, y+591-((j+1)*100));
+            depositos.DepositoLimonSoda.get(j).paint(g, panel);
         }
         // Bebida Comprada
-        if(DepositoBebidaSacar!=null){
-            DepositoBebidaSacar.setXY(x+464, y+500);
-            DepositoBebidaSacar.paint(g, panel);
+        if(depositos.DepositoBebidaSacar!=null){
+            depositos.DepositoBebidaSacar.setXY(x+464, y+500);
+            depositos.DepositoBebidaSacar.paint(g, panel);
         }
         // Vuelto
-        for(int j = 0; j < DepositoVuelto.size() ; j++){
+        for(int j = 0; j < depositos.DepositoVuelto.size() ; j++){
             if(j<4){
-                DepositoVuelto.get(j).paint(g, x+425+(j*25), y+416, 49, 49, panel);
+                depositos.DepositoVuelto.get(j).paint(g, x+425+(j*25), y+416, 49, 49, panel);
             }else if(j<8){
-                DepositoVuelto.get(j).paint(g, x+425+((j-4)*25), y+382, 49, 49, panel);
+                depositos.DepositoVuelto.get(j).paint(g, x+425+((j-4)*25), y+382, 49, 49, panel);
             }else if(j<12){
-                DepositoVuelto.get(j).paint(g, x+425+((j-8)*25), y+348, 49, 49, panel);
+                depositos.DepositoVuelto.get(j).paint(g, x+425+((j-8)*25), y+348, 49, 49, panel);
             }
         }
     }
     
     public Expendedor(int numBebidas, int precioBebidas){
-        super(numBebidas);
+        depositos = new Depositos(numBebidas);
         x = 667;
         y = 28;
         this.precioBebidas = precioBebidas;
-        DepositoBebidaSacar = null;
+        depositos.DepositoBebidaSacar = null;
     }
 }

@@ -3,7 +3,7 @@ package tarea3;
 import java.util.ArrayList;
 
 
-public abstract class Deposito {
+class Depositos {
     // PROPIEDADES
     protected ArrayList<LimonSoda> DepositoLimonSoda;
     protected  ArrayList<CocaCola> DepositoCoca;
@@ -13,7 +13,7 @@ public abstract class Deposito {
     protected ArrayList<Moneda> DepositoVuelto;
     protected ArrayList<Moneda> DepositoPagado;
     // METODOS
-    protected Deposito(int cantidad){
+    protected Depositos(int cantidad){
         DepositoCoca = new ArrayList<>();
         DepositoSprite = new ArrayList<>();
         DepositoFanta = new ArrayList<>();

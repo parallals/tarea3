@@ -3,23 +3,19 @@ package tarea3;
 import java.util.ArrayList;
 
 
-class Depositos {
+class DepositosBebidas {
     // PROPIEDADES
     protected ArrayList<LimonSoda> DepositoLimonSoda;
-    protected  ArrayList<CocaCola> DepositoCoca;
+    protected ArrayList<CocaCola> DepositoCoca;
     protected ArrayList<Sprite> DepositoSprite;
     protected ArrayList<Fanta> DepositoFanta;
     protected Bebida DepositoBebidaSacar;
-    protected ArrayList<Moneda> DepositoVuelto;
-    protected ArrayList<Moneda> DepositoPagado;
     // METODOS
-    protected Depositos(int cantidad){
+    protected DepositosBebidas(int cantidad){
         DepositoCoca = new ArrayList<>();
         DepositoSprite = new ArrayList<>();
         DepositoFanta = new ArrayList<>();
         DepositoLimonSoda = new ArrayList<>();
-        DepositoVuelto = new ArrayList<>();
-        DepositoPagado = new ArrayList<>();
         DepositoBebidaSacar = null;
         for(int i=0 ; i<cantidad ; i++){
             DepositoCoca.add(new CocaCola(Bebida.serieBebidas));
